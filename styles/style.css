@@ -1,0 +1,438 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Formula1';
+    src: url('../formula-font/Formula1-Regular_web_0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Formula1';
+    src: url('../formula-font/Formula1-Bold_web_0.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Formula1-Wide';
+    src: url('../formula-font/Formula1-Wide_web_0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Formula1', sans-serif;    
+    background-color: #030303;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.main-header {
+    background-color: #030303;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 4px solid #e10600;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img {
+    height: 3vh;
+    margin-right: 10px;
+    
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    
+}
+
+.navbar a {
+    color: #bababa;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 17px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    color: #e10600;
+}
+
+.hero-section {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    background: linear-gradient(110deg, #09090d, 35%, rgba(0, 0, 0, 0.7) 50%, transparent 65%), 
+                url('/images/background/background.avif'); 
+                
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: #15151e;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 550px; 
+    z-index: 2;
+}
+
+
+.data-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 40px;
+}
+
+.data-box {
+    background-color: #0d0d12;
+    border-radius: 8px;
+    padding: 25px;
+    border: 1px solid #1f1f26;
+}
+
+.box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1f1f26;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.red-link {
+    color: #e10600;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table td {
+    padding: 12px 5px;
+    font-size: 15px;
+    border-bottom: 1px solid #15151c;
+}
+
+.team-name {
+    color: #888888;
+    font-size: 13px;
+}
+
+.points {
+    text-align: right;
+    font-weight: 700;
+}
+
+.central-box {
+    text-align: center;
+    border-top: 4px solid #e10600;
+}
+
+.next-race-title {
+    color: #e10600;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.race-date {
+    color: #888888;
+    margin-bottom: 20px;
+}
+
+.track-visual {
+    background-color: #15151c;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.time-unit {
+    font-size: 11px;
+    color: #888888;
+}
+
+.time-unit span {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.guide-section {
+    padding: 60px 40px;
+    background-color: #09090d;
+}
+
+.guide-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.guide-card {
+    background-color: #0d0d12;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #1f1f26;
+}
+
+.card-icon {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.tyre-section, .poll-section {
+    padding: 60px 3%;
+    background-color: #030303;
+    margin: 40px 0 0 0;
+    text-align: center;
+}
+
+.tyre-section h2, .poll-section h2 {
+    font-family: 'Formula1', sans-serif;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.tyre-section p, .poll-section p {
+    color: #bbb;
+}
+
+.tyre-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.tyre-icon img{
+    width: 50%;
+    height: auto;
+}
+
+.tyre-card {
+    background: #15151e;
+    padding: 30px;
+    border-radius: 4px;
+    flex: 1;
+    border-bottom: 4px solid #333;
+    transition: transform 0.3s ease;
+}
+
+.tyre-card:hover {
+    transform: translateY(-5px);
+}
+
+.tyre-card h3 {
+    font-size: 1.2rem;
+    margin: 15px 0 10px 0;
+    color: #fff;
+}
+
+.tyre-card.soft { border-bottom-color: #e10600; }
+.tyre-card.medium { border-bottom-color: #ffd100; }
+.tyre-card.hard { border-bottom-color: #ffffff; }
+
+.tyre-icon {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.poll-section {
+    background-color: #09090d;
+    margin: 0;
+    padding-bottom: 80px;
+}
+
+.poll-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    max-width: 90vw;
+    margin: 30px auto 0 auto;
+    width: 100%;
+}
+
+.poll-btn {
+    background: #1a1a20;
+    color: white;
+    border: 1px solid #38384f;
+    padding: 10px 15px;
+    font-family: 'Formula1', sans-serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.poll-btn:hover {
+    border-color: #e10600;
+    background: rgba(225, 6, 0, 0.1);
+}
+
+.vote-confirmation {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto 0 auto;
+    padding: 20px;
+    background: #131317;
+    border-left: 4px solid #e10600;
+    text-align: center;
+}
+
+.vote-confirmation h3 {
+    font-family: 'Formula1', sans-serif;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.mini-calendar-section {
+    padding: 60px 3%;
+    background-color: #030303;
+    text-align: center;
+    margin: 0;
+}
+
+.mini-calendar-section h2 {
+    font-family: 'Formula1', sans-serif;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.calendar-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.race-card {
+    background: #15151e;
+    padding: 25px;
+    border-radius: 4px;
+    flex: 1;
+    text-align: left;
+    border-top: 3px solid #e10600;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.race-card .round {
+    color: #e10600;
+    font-family: 'Formula1', sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.race-card h3 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 5px 0;
+}
+
+.race-card .locality {
+    color: #bbb;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.race-card .date-box {
+    font-weight: bold;
+    color: #fff;
+    border-top: 1px solid #2a2a35;
+    padding-top: 10px;
+    font-size: 0.9rem;
+}
+
+
+
+
+.main-footer {
+    background-color: #09090d;
+    text-align: center;
+    padding: 20px;
+    color: #666666;
+    font-size: 13px;
+}
+
+@media (max-width: 900px) {
+    .data-container, .guide-grid { grid-template-columns: 1fr; }
+    .main-header { flex-direction: column; gap: 15px; }
+}
+
+@media (max-width: 992px) {
+    .hero-section {
+        padding: 60px 20px;
+        min-height: 60vh;
+        align-items: flex-end; 
+        
+        background: linear-gradient(to top, #15151e 60%, rgba(21, 21, 30, 0.4) 100%), 
+                    url('/images/background/background.avif');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center; 
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem; 
+    }
+}
+
+@media (max-width: 768px) {
+    .tyre-grid {
+        flex-direction: column;
+    }
+    .poll-options {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .poll-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .calendar-grid {
+        flex-direction: column;
+    }
+}

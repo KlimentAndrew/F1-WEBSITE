@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 - HOME OF MOTORSPORT</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo"> <img src="/images/logo/f1-logo.png" alt="F1 Logo">F1 - HOME OF MOTORSPORT</div>
+        <nav class="navbar">
+            <a href="#" class="active">HOME</a>
+            <a href="results.html">RESULTS</a>
+            <a href="standings.html">STANDINGS</a>
+            <a href="calendar.html">CALENDAR</a>
+            <a href="telemetry.html">TECH ZONE</a>
+            <a href="archive.html">ARCHIVE</a>
+        </nav>
+    </header>
+
+   <section class="hero-section">
+        <div class="hero-content">
+            <span class="hero-badge">LIVE SEASON OVERVIEW</span>
+            <h1>A NEW ERA OF FORMULA 1 IS HERE</h1>
+            <p>Welcome to the ultimate F1 telemetry and data hub. Track real-time battles on the grid, analyze live standings, and monitor tire strategies. Experience the pinnacle of motorsport and dive deep into the world of elite racing. Drive your passion forward. </p>
+        </div>
+    </section>
+
+    <section class="data-container">
+        
+        <div class="data-box">
+            <div class="box-header">
+                <h3>DRIVER STANDINGS</h3>
+                <a href="standings.html" class="red-link">VIEW ALL</a>
+            </div>
+            <table class="data-table">
+                <tbody id="drivers-preview">
+                    <tr><td style="color:#666; text-align:center;">Loading standings...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="data-box central-box">
+            <span class="next-race-title">NEXT RACE</span>
+            <h2 id="race-name">LOADING...</h2>
+            <p class="race-date" id="race-date">--</p>
+            
+            <div class="track-visual">
+                <div class="track-placeholder" id="race-circuit">📍 Locating circuit...</div>
+            </div>
+
+            <div class="countdown">
+                <div class="time-unit"><span id="days">--</span> DAYS</div>
+                <div class="time-unit"><span id="hours">--</span> HRS</div>
+                <div class="time-unit"><span id="minutes">--</span> MINS</div>
+            </div>
+        </div>
+
+        <div class="data-box">
+            <div class="box-header">
+                <h3>CONSTRUCTOR STANDINGS</h3>
+                <a href="standings.html" class="red-link">VIEW ALL</a>
+            </div>
+            <table class="data-table">
+                <tbody id="constructors-preview">
+                    <tr><td style="color:#666; text-align:center;">Loading standings...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <section class="guide-section">
+        <h2>F1 TECHNICAL & RACING GUIDE</h2>
+        <div class="guide-grid">
+            
+            <div class="guide-card">
+                <div class="card-icon">⚡</div>
+                <h3>Hybrid Power Units</h3>
+                <p>Modern F1 cars use highly advanced hybrid power units, combining a turbocharged V6 internal combustion engine with powerful electric energy recovery systems (MGU-K and MGU-H) for maximum efficiency.</p>
+            </div>
+            
+            <div class="guide-card">
+                <div class="card-icon">📐</div>
+                <h3>Aerodynamics & DRS</h3>
+                <p>Downforce is everything in F1. The wings and floor create massive grip through corners, while the Drag Reduction System (DRS) opens the rear wing on straights to reduce drag and increase top speed for overtaking.</p>
+            </div>
+            
+            <div class="guide-card">
+                <div class="card-icon">🏁</div>
+                <h3>Race Regulations & Flags</h3>
+                <p>Drivers must obey strict track signaling. A Yellow flag warns of danger ahead, Red immediately stops the session for safety, and Blue orders a slower car to yield and let faster leaders pass.</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="tyre-section">
+        <h2>OFFICIAL PIRELLI TYRE COMPOUNDS</h2>
+        <div class="tyre-grid">
+            <div class="tyre-card soft">
+                <div class="tyre-icon"><img src="/images/tyres/soft.png" alt="Soft Tyre"></div>
+                <h3>SOFT (P-Zero Red)</h3>
+                <p>The fastest tyre available. Provides maximum grip for qualifying and short stints, but degrades very quickly.</p>
+            </div>
+            <div class="tyre-card medium">
+                <div class="tyre-icon"><img src="/images/tyres/medium.png" alt="Medium Tyre"></div>
+                <h3>MEDIUM (P-Zero Yellow)</h3>
+                <p>The most balanced option. Offers a great compromise between high performance and durability during the race.</p>
+            </div>
+            <div class="tyre-card hard">
+                <div class="tyre-icon"><img src="/images/tyres/hard.png" alt="Hard Tyre"></div>
+                <h3>HARD (P-Zero White)</h3>
+                <p>The most durable compound. Perfect for long stints and hot track temperatures, but takes longer to warm up.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="poll-section">
+        <h2>VOTE FOR YOUR FAVORITE DRIVER </h2>
+        <p>Select any driver from the current grid to cast your vote!</p>
+        
+        <div id="poll-container" class="poll-options">
+            <p style="color: #666;">Loading current grid...</p>
+        </div>
+    </section>
+    <section class="mini-calendar-section">
+        <h2>UPCOMING GRAND PRIX</h2>
+        <p>Get ready for the next battles on the track. Here are the upcoming events.</p>
+        
+        <div id="calendar-preview-container" class="calendar-grid">
+            <p style="color: #666; text-align: center; grid-column: 1/-1;">Loading upcoming races...</p>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 F1 - HOME OF MOTORSPORT | Powered by Jolpica API</p>
+    </footer>
+
+    <script src="/script/script.js"></script>
+</body>
+</html>
