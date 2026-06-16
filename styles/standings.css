@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Formula1';
+    src: url('../formula-font/Formula1-Regular_web_0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Formula1';
+    src: url('../formula-font/Formula1-Bold_web_0.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Formula1-Wide';
+    src: url('../formula-font/Formula1-Wide_web_0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Formula1', sans-serif;    
+    background-color: #030303;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+
+.main-header {
+    background-color: #030303;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 4px solid #e10600;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img {
+    height: 3vh;
+    margin-right: 10px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.navbar a {
+    color: #bababa;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 17px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    color: #e10600;
+}
+
+
+.main-footer {
+    background-color: #09090d;
+    text-align: center;
+    padding: 20px;
+    color: #666666;
+    font-size: 13px;
+}
+
+.data-box {
+    background-color: #0d0d12;
+    border-radius: 8px;
+    padding: 25px;
+    border: 1px solid #1f1f26;
+}
+
+.standings-page-container {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 30px;
+    width: 94%;
+    max-width: 1400px;
+    margin: 40px auto;
+    
+}
+
+.standings-page-container .standings-full-box {
+    background-color: #0d0d12;
+    border: 1px solid #1f1f26;    
+    border-radius: 8px;          
+    padding: 25px;    
+}
+
+.standings-page-container h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+
+.standings-page-container .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+
+.standings-page-container .data-table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.standings-page-container .data-table th,
+.standings-page-container .data-table td {
+    padding: 12px 18px; 
+    vertical-align: middle;
+    text-align: left; 
+}
+
+.standings-page-container .data-table th:last-child,
+.standings-page-container .data-table td:last-child {
+    text-align: right !important;
+}
+
+
+@media (min-width: 992px) {
+    .standings-page-container {
+        grid-template-columns: 1fr 1fr; /* Na PC vedle sebe */
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-header { 
+        flex-direction: column; 
+        gap: 15px; 
+    }
+}

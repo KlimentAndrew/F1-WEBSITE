@@ -251,7 +251,7 @@ async function loadLastRaceResults() {
             container.innerHTML = ""; 
 
             
-            const topFive = results.slice(0, 5);
+            const topFive = results.slice(0, 10);
 
             topFive.forEach(result => {
                 const tr = document.createElement("tr");

@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Formula1';
+    src: url('../formula-font/Formula1-Regular_web_0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Formula1';
+    src: url('../formula-font/Formula1-Bold_web_0.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Formula1-Wide';
+    src: url('../formula-font/Formula1-Wide_web_0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Formula1', sans-serif;    
+    background-color: #030303;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.main-header {
+    background-color: #030303;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 4px solid #e10600;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img {
+    height: 3vh;
+    margin-right: 10px;
+    
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    
+}
+
+.navbar a {
+    color: #bababa;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 17px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    color: #e10600;
+}
+
+.standings-page-container {
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: calc(100vh - 140px);
+}
+
+.data-box {
+    background-color: #0d0d12;
+    border: 1px solid #22222f;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    
+}
+
+.box-header {
+    background-color: #0d0d12;
+    padding: 20px;
+    border-bottom: 1px solid #22222f;
+
+}
+
+.box-header h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    background-color: #15151e;
+    color: #888896;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 15px 20px;
+    border-bottom: 1px solid #22222f;
+    text-transform: uppercase;
+
+}
+
+.data-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #181824;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.data-table th.points, .data-table td.points {
+    text-align: center;
+}
+
+.track-mini-cell {
+    width: 80px;
+    padding: 5px 10px ;
+}
+
+.track-mini {
+    max-width: 100px;
+    height: 65px;
+    object-fit: contain;
+    filter: invert(1) brightness(2);    
+    transition: filter 0.2s ease;
+}
+
+.race-row {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.race-row:hover {
+    background-color: #15151e;
+}
+
+.race-row:hover .track-mini {
+    filter: invert(1) brightness(2);    
+}
+
+.active-row {
+    background-color: #14141a ;
+}
+
+.detail-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.detail-image-box {
+    flex: 1;
+    max-width: 500px;
+    text-align: center;
+}
+
+.track-large {
+    max-width: 100%;
+    height: auto;
+    filter: invert(1) brightness(2);    
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.detail-info-box {
+    flex: 2;
+}
+
+.specs-table {
+    width: 100%;
+}
+
+.specs-table td {
+    padding: 10px 0 ;
+    border: none ;
+    background: none ;
+}
+
+.specs-table td:last-child {
+    text-align: left;
+    font-weight: 600;
+}
+
+.podium-grid {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.podium-card {
+    flex: 1;
+    background-color: #111116;
+    border: 1px solid #1f1f2e;
+    border-radius: 6px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.podium-pos {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #888896;
+    border-right: 1px solid #22222f;
+    padding-right: 12px;
+}
+
+.podium-driver {
+    display: flex;
+    flex-direction: column;
+}
+
+.podium-driver strong {
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.podium-driver span {
+    font-size: 12px;
+    color: #666677;
+}
+
+.card-1st {
+    border-left: 3px solid #00d2be; 
+}
+
+/* --- FOOTER --- */
+.main-footer {
+    background-color: #111118;
+    padding: 20px 40px;
+    text-align: center;
+    border-top: 1px solid #22222f;
+    color: #666677;
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVITA PRO MOBILY --- */
+@media (max-width: 768px) {
+    .detail-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .podium-grid {
+        flex-direction: column;
+    }
+    .track-mini-cell {
+        display: none; /* schová mini tratě na mobilu, ať je místo */
+    }
+}
