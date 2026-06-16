@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F1 - HOME OF MOTORSPORT</title>
+    <link rel="icon" type="image/png" href="images/logo/f1-logo.png">
     <link rel="stylesheet" href="/styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -49,13 +50,14 @@
             <p class="race-date" id="race-date">--</p>
             
             <div class="track-visual">
-                <div class="track-placeholder" id="race-circuit">📍 Locating circuit...</div>
+                <div class="track-placeholder" id="race-circuit">📍 Locating circuit...</div> 
             </div>
 
             <div class="countdown">
                 <div class="time-unit"><span id="days">--</span> DAYS</div>
                 <div class="time-unit"><span id="hours">--</span> HRS</div>
                 <div class="time-unit"><span id="minutes">--</span> MINS</div>
+                <div class="time-unit"><span id="seconds">--</span> SECS</div>
             </div>
         </div>
 
@@ -72,6 +74,8 @@
         </div>
 
     </section>
+
+    
 
     <section class="guide-section">
         <h2>F1 TECHNICAL & RACING GUIDE</h2>
@@ -97,6 +101,27 @@
             
         </div>
     </section>
+
+    <section class="result-section">
+        <div class="data-box recent-results-box">
+            <div class="box-header">
+                <h3 id="last-race-title">BARCELONA GP RESULTS</h3>
+                <a href="results.html" class="view-all-btn">VIEW ALL</a>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>POS</th>
+                        <th>DRIVER</th>
+                        <th>TEAM</th>
+                        <th style="text-align: right;">PTS</th> </tr>
+                </thead>
+                <tbody id="recent-results-container">
+                    </tbody>
+            </table>
+        </div>
+    </section>  
+
 
     <section class="tyre-section">
         <h2>OFFICIAL PIRELLI TYRE COMPOUNDS</h2>
@@ -132,12 +157,12 @@
         <p>Get ready for the next battles on the track. Here are the upcoming events.</p>
         
         <div id="calendar-preview-container" class="calendar-grid">
-            <p style="color: #666; text-align: center; grid-column: 1/-1;">Loading upcoming races...</p>
+            <p>Loading upcoming races...</p>
         </div>
     </section>
 
     <footer class="main-footer">
-        <p>&copy; 2026 F1 - HOME OF MOTORSPORT | Powered by Jolpica API</p>
+        <p>&copy; 2026 F1 - HOME OF MOTORSPORT </p>
     </footer>
 
     <script src="/script/script.js"></script>

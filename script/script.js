@@ -1,11 +1,13 @@
 const DRIVERS_URL = 'https://api.jolpi.ca/ergast/f1/current/driverStandings.json';
 const TEAMS_URL = 'https://api.jolpi.ca/ergast/f1/current/constructorStandings.json';
 const RACES_URL = 'https://api.jolpi.ca/ergast/f1/current.json';
+const LAST_RESULTS_URL = "https://api.jolpica.io/f1/current/last/results.json";
 
 document.addEventListener("DOMContentLoaded", () => {
     loadDriverStandings();
     loadConstructorStandings();
     loadCountdown();
+    loadLastRaceResults();
 });
 
 async function loadDriverStandings() {
@@ -67,33 +69,7 @@ async function loadConstructorStandings() {
     }
 }
 
-async function loadCountdown() {
-    try {
-        const response = await fetch(RACES_URL);
-        const data = await response.json();
-        const races = data.MRData.RaceTable.Races;
-        const now = new Date();
-        
-        let nextRace = races.find(r => new Date(r.date) > now) || races[races.length - 1];
 
-        document.getElementById("race-name").innerText = nextRace.raceName.toUpperCase();
-        document.getElementById("race-circuit").innerText = `🏁 ${nextRace.Circuit.circuitName}`;
-        document.getElementById("race-date").innerText = new Date(nextRace.date).toLocaleDateString("en-US", { day: 'numeric', month: 'long', year: 'numeric' });
-
-        const target = new Date(`${nextRace.date}T${nextRace.time || "14:00:00Z"}`);
-        
-        setInterval(() => {
-            const diff = target - new Date();
-            if (diff <= 0) return;
-
-            document.getElementById("days").innerText = Math.floor(diff / 86400000).toString().padStart(2, '0');
-            document.getElementById("hours").innerText = Math.floor((diff % 86400000) / 3600000).toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
-        }, 1000);
-    } catch (error) {
-        console.error('Countdown error:', error);
-    }
-}
 
 async function loadDriverStandings() {
     try {
@@ -180,7 +156,6 @@ async function loadCountdown() {
         const trackPlaceholder = document.getElementById("race-circuit");
         
         if (trackPlaceholder) {
-            // Najdeme nebo vytvoříme element pro obrázek, abychom ho neduplikovali
             let mapImg = document.getElementById("track-map-img");
             if (!mapImg) {
                 mapImg = document.createElement("img");
@@ -203,6 +178,7 @@ async function loadCountdown() {
             document.getElementById("days").innerText = Math.floor(diff / 86400000).toString().padStart(2, '0');
             document.getElementById("hours").innerText = Math.floor((diff % 86400000) / 3600000).toString().padStart(2, '0');
             document.getElementById("minutes").innerText = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = Math.floor((diff % 60000) / 1000).toString().padStart(2, '0');
         }, 1000);
 
        
@@ -243,5 +219,64 @@ async function loadCountdown() {
         console.error('Countdown/Calendar error:', error);
         const calendarContainer = document.getElementById('calendar-preview-container');
         if (calendarContainer) calendarContainer.innerHTML = '<p style="color: #666;">Calendar temporary unavailable.</p>';
+    }
+}
+
+async function loadLastRaceResults() {
+    try {
+        const response = await fetch("https://api.jolpi.ca/ergast/f1/current/last/results.json");
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        const raceInfo = data.MRData.RaceTable.Races[0];
+        
+        if (!raceInfo || !raceInfo.Results) {
+            throw new Error("No race results found in the response");
+        }
+        
+        const results = raceInfo.Results;
+
+        const cleanRaceName = raceInfo.raceName.toUpperCase().replace("GRAND PRIX", "GP");
+        const titleEl = document.getElementById("last-race-title");
+        if (titleEl) {
+            titleEl.innerText = `${cleanRaceName} RESULTS`;
+        }
+
+        const container = document.getElementById("recent-results-container");
+        if (container) {
+            container.innerHTML = ""; 
+
+            
+            const topFive = results.slice(0, 5);
+
+            topFive.forEach(result => {
+                const tr = document.createElement("tr");
+                
+                const driverName = `${result.Driver.givenName} ${result.Driver.familyName}`;
+                const teamName = result.Constructor.name;
+                
+                tr.innerHTML = `
+                    <td class="position" style="font-weight: bold; color: #e10600; width: 80px;">${result.position}</td>
+                    <td class="driver-name">
+                        <strong>${result.Driver.familyName.toUpperCase()}</strong> 
+                        <span style="font-size: 0.85rem; color: #bbb;">${result.Driver.givenName}</span>
+                    </td>
+                    <td class="team">${teamName}</td>
+                    <td class="points" style="text-align: left; font-weight: bold;">${result.points} pts</td>
+                `;
+                
+                container.appendChild(tr);
+            });
+        }
+    } catch (error) {
+        console.error("Error loading last race results:", error);
+        const container = document.getElementById("recent-results-container");
+        if (container) {
+            container.innerHTML = `<tr><td colspan="4" style="text-align: center; color: #bbbbbb;">Results temporarily unavailable.</td></tr>`;
+        }
     }
 }

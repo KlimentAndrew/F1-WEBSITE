@@ -159,6 +159,8 @@ body {
     margin-bottom: 20px;
 }
 
+
+
 .track-visual {
     background-color: #15151c;
     padding: 20px;
@@ -182,6 +184,67 @@ body {
     font-size: 28px;
     font-weight: 700;
     color: #ffffff;
+}
+
+.result-section {
+    background-color: #030303;
+    text-align: center;
+    padding: 10px; 
+}
+
+.recent-results-box {
+    width: 92%;               
+    max-width: 1000px;             
+    margin: 20px auto;      
+    padding: 20px;            
+    background-color: #0d0d12;
+    border-radius: 8px;
+    border: 1px solid #1f1f26;
+    box-sizing: border-box;   
+}
+
+.recent-results-box .box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;      
+}
+
+.recent-results-box .view-all-btn,
+.recent-results-box .view-all-btn:visited {
+    color: #e10600; 
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: opacity 0.2s ease;
+}
+
+.recent-results-box .view-all-btn:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.recent-results-box .data-table {
+    width: 100%;
+    border-collapse: collapse;  
+}
+
+.recent-results-box th {
+    text-align: left;
+    padding: 10px;
+    color: #888;              
+    font-size: 0.85rem;
+}
+
+.recent-results-box td {
+    padding: 12px 10px;
+    text-align: left;      
+}
+
+.recent-results-box .points {
+    text-align: right !important;
+    font-weight: bold;
 }
 
 .guide-section {
@@ -358,7 +421,7 @@ body {
 }
 
 .race-card h3 {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     color: #fff;
     margin: 5px 0;
 }
@@ -374,7 +437,7 @@ body {
     color: #fff;
     border-top: 1px solid #2a2a35;
     padding-top: 10px;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
 }
 
 
@@ -434,5 +497,15 @@ body {
 @media (max-width: 768px) {
     .calendar-grid {
         flex-direction: column;
+    }
+}
+@media (min-width: 768px) {
+    .recent-results-box {
+        padding: 25px;        
+        width: 100%;          
+    }
+    
+    .recent-results-box .view-all-btn {
+        font-size: 0.85rem;   
     }
 }
