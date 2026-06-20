@@ -6,12 +6,13 @@
     <title>F1 - TECH ZONE</title>
     <link rel="icon" type="image/png" href="../images/logo/f1-logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/techzone.css">
+    <link rel="stylesheet" href="/styles/standings.css"> 
+    <link rel="stylesheet" href="/styles/techzone.css">
 </head>
 <body>
 
     <header class="main-header">
-        <div class="logo"> <img src="../images/logo/f1-logo.png" alt="F1 Logo">F1 - HOME OF MOTORSPORT</div>
+        <div class="logo"> <img src="/images/logo/f1-logo.png" alt="F1 Logo">F1 - HOME OF MOTORSPORT</div>
         <nav class="navbar">
             <a href="../">HOME</a>
             <a href="results.html">RESULTS</a>
@@ -22,29 +23,40 @@
         </nav>
     </header>
 
-    <div class="techzone-navigation-bar">
-        <button class="nav-tab active" data-category="monopost">MONOPOST ANALYSIS</button>
-        <button class="nav-tab" data-category="tires">TYRE SPECIFICATIONS</button>
-        <button class="nav-tab" data-category="flags">MARSHAL SIGNALS</button>
+    <div class="techzone-sub-nav">
+        <span class="sub-tab active" data-category="monopost">MONOPOST ANALYSIS</span>
+        <span class="sub-tab" data-category="tires">TYRE SPECIFICATIONS</span>
+        <span class="sub-tab" data-category="flags">MARSHAL SIGNALS</span>
     </div>
 
     <main class="immersive-theatre-viewport">
         
-        <div class="blueprint-fade-wrapper">
-            <div class="interactive-stage-core">
-                <img src="../images/monopost/mono1.avif" id="mainShowcaseAsset" alt="F1 Technical Draft">
-                <div id="canvasHotspotOverlay"></div>
+        <div class="fullscreen-stage-core" id="interactiveStage">
+            <img src="/images/monopost/mono1.avif" id="mainShowcaseAsset" alt="F1 Technical Blueprint">
+            <div id="canvasHotspotOverlay">
+                <div class="liquid-glass-modal" id="liquidModal">
+                    <button class="liquid-close-btn" id="closeLiquidModal" aria-label="Close">×</button>
+                    <span class="liquid-tag" id="modalTag">FIA REGULATION</span>
+                    <h2 class="liquid-title" id="modalTitle">Component Detail</h2>
+                    <p class="liquid-desc" id="modalDesc"></p>
+                </div>
             </div>
         </div>
 
-        <div class="liquid-glass-modal" id="liquidModal">
-            <button class="liquid-close-btn" id="closeLiquidModal" aria-label="Close details">×</button>
-            <span class="liquid-tag" id="modalTag">FIA REGULATION</span>
-            <h2 class="liquid-title" id="modalTitle">Component Detail</h2>
-            <p class="liquid-desc" id="modalDesc">Select any interactive system node to initialize stream telemetry data.</p>
+        <div class="text-category-layout" id="textCategoryLayout" style="display: none;">
+            <div class="layout-visual-side">
+                <img src="" id="layoutSideImage" alt="Category Visual">
+            </div>
+            <div class="layout-text-side">
+                <span class="content-tag" id="textContentTag">PIRELLI MOTORSPORT</span>
+                <h1 class="content-title" id="textContentTitle">Tyre Title</h1>
+                <hr class="content-divider">
+                <div class="content-body-space" id="textContentBody">
+                    </div>
+            </div>
         </div>
 
-        <div class="hud-floating-controller" id="monopostControls">
+        <div class="hud-floating-controller">
             <button class="hud-nav-arrow" id="btnPrevAsset">←</button>
             <div class="hud-center-identity">
                 <span id="hudAssetCounter">01 // 08</span>
@@ -59,6 +71,6 @@
         <p>&copy; 2026 F1 - HOME OF MOTORSPORT </p>
     </footer>
 
-    <script src="../script/techzone.js"></script>
+    <script src="/script/techzone.js"></script>
 </body>
 </html>
