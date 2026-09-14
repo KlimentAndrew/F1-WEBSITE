@@ -16,6 +16,7 @@
             <a href="#" class="active">HOME</a>
             <a href="/html/results.html">RESULTS</a>
             <a href="/html/standings.html">STANDINGS</a>
+            <a href="/html/drivers.html">DRIVERS</a>
             <a href="/html/calendar.html">CALENDAR</a>
             <a href="/html/techzone.html">TECH ZONE</a>
             <a href="/html/archive.html">ARCHIVE</a>
@@ -25,8 +26,8 @@
    <section class="hero-section">
         <div class="hero-content">
             <span class="hero-badge">LIVE SEASON OVERVIEW</span>
-            <h1>A NEW ERA OF FORMULA 1 IS HERE</h1>
-            <p>Welcome to the ultimate F1 telemetry and data hub. Track real-time battles on the grid, analyze live standings, and monitor tire strategies. Experience the pinnacle of motorsport and dive deep into the world of elite racing. Drive your passion forward. </p>
+            <h1>THE ULTIMATE MOTORSPORT DATA HUB</h1>
+            <p>Welcome to the definitive platform for Formula 1 analytics and race histories. Explore comprehensive Grand Prix classifications, dynamic championship battles, and historical data spanning across legendary seasons. Select a round above to uncover the stats behind the speed.</p>
         </div>
     </section>
 
@@ -35,7 +36,7 @@
         <div class="data-box">
             <div class="box-header">
                 <h3>DRIVER STANDINGS</h3>
-                <a href="standings.html" class="red-link">VIEW ALL</a>
+                <a href="html/standings.html" class="red-link">VIEW ALL</a>
             </div>
             <table class="data-table">
                 <tbody id="drivers-preview">
@@ -64,7 +65,7 @@
         <div class="data-box">
             <div class="box-header">
                 <h3>CONSTRUCTOR STANDINGS</h3>
-                <a href="standings.html" class="red-link">VIEW ALL</a>
+                <a href="html/standings.html" class="red-link">VIEW ALL</a>
             </div>
             <table class="data-table">
                 <tbody id="constructors-preview">
@@ -89,7 +90,7 @@
             
             <div class="guide-card">
                 <div class="card-icon">📐</div>
-                <h3>Aerodynamics & DRS</h3>
+                <h3>Aerodynamics & Active Aero</h3>
                 <p>Downforce is everything in F1. The wings and floor create massive grip through corners, while the Drag Reduction System (DRS) opens the rear wing on straights to reduce drag and increase top speed for overtaking.</p>
             </div>
             
@@ -106,7 +107,7 @@
         <div class="data-box recent-results-box">
             <div class="box-header">
                 <h3 id="last-race-title">BARCELONA GP RESULTS</h3>
-                <a href="results.html" class="view-all-btn">VIEW ALL</a>
+                <a href="html/results.html" class="view-all-btn">VIEW ALL</a>
             </div>
             <table class="data-table">
                 <thead>
@@ -144,14 +145,23 @@
         </div>
     </section>
 
-    <section class="poll-section">
-        <h2>VOTE FOR YOUR FAVORITE DRIVER </h2>
-        <p>Select any driver from the current grid to cast your vote!</p>
-        
-        <div id="poll-container" class="poll-options">
-            <p style="color: #666;">Loading current grid...</p>
+        <!-- HTML: Vlož do index.html -->
+    <section class="index-drivers-section">
+        <h3 class="section-title">2026 FORMULA 1 DRIVERS</h3>
+        <div id="index-drivers-grid" class="drivers-grid">
+            <p style="color: #aaa;">Loading drivers...</p>
         </div>
     </section>
+
+    <!-- Simple Modal Overlay -->
+    <div id="driver-modal-overlay" class="driver-modal-overlay" style="display: none;">
+        <div class="driver-modal-box">
+            <button id="modal-close-btn" class="modal-close-btn">&times;</button>
+            <div id="driver-modal-content">
+                <!-- Dynamic quick info content -->
+            </div>
+        </div>
+    </div>
     <section class="mini-calendar-section">
         <h2>UPCOMING GRAND PRIX</h2>
         <p>Get ready for the next battles on the track. Here are the upcoming events.</p>

@@ -25,7 +25,7 @@ const circuitSpecs = {
     "americas": { length: "5.513 km", laps: 56, firstGp: "2012" },
     "rodriguez": { length: "4.304 km", laps: 71, firstGp: "1963" },
     "interlagos": { length: "4.309 km", laps: 71, firstGp: "1973" },
-    "las_vegas": { length: "6.201 km", laps: 50, firstGp: "1981" },
+    "vegas": { length: "6.201 km", laps: 50, firstGp: "2023" },
     "losail": { length: "5.419 km", laps: 57, firstGp: "2021" },
     "yas_marina": { length: "5.281 km", laps: 58, firstGp: "2009" }
 };
@@ -34,13 +34,14 @@ const teamColors = {
     "red_bull": "#1d2a4a",
     "ferrari": "#e10600",
     "mercedes": "#00d2be",
-    "mclaren": "#ff8700",
-    "sauber": "#52e252",
+    "mclaren": "#ff8000",
+    "audi": "#e8d3d3",
     "alpine": "#ff4096",
     "williams": "#00a3e0",
-    "rb": "#6692ff",
-    "haas": "#b6babd",
-    "aston_martin": "#229971"
+    "rb": "#2f67f6",
+    "haas": "#8b8c8d",
+    "aston_martin": "#229971",
+    "cadillac": "#fefefe"
 };
 
 
@@ -54,8 +55,8 @@ function getFileNameByCircuit(circuitId) {
         "jeddah": "Saudi-Arabia",
         "miami": "Miami",
         "monaco": "Monaco",
-        "catalunya": "Barcelona", // Pro kolo 7 (Barcelona-Catalunya)
-        "madring": "Madrid",       // Pro kolo 14 (Madring / Madrid)
+        "catalunya": "Barcelona", 
+        "madring": "Madrid",       
         "villeneuve": "Canada",
         "red_bull_ring": "Austria",
         "silverstone": "Britian",
@@ -64,12 +65,12 @@ function getFileNameByCircuit(circuitId) {
         "zandvoort": "Zandvoort",
         "monza": "Monza",
         "baku": "Azerbaijan",
-        "sepang": "Sepang",      // Zohledněno i pro Sepang v datech
+        "sepang": "Sepang",      
         "marina_bay": "Singapore",
         "americas": "COTA",
         "rodriguez": "Mexico",
         "interlagos": "Brazil",
-        "vegas": "Las-Vegas",      // Upraveno podle tvého JSONu ("vegas")
+        "vegas": "Las-Vegas",      
         "losail": "Qatar",
         "yas_marina": "Abu-Dhabi"
     };
@@ -194,7 +195,7 @@ async function loadCalendar() {
                                     }
                                 }
                             } catch (err) {
-                                console.log("Výsledky zatím nedostupné.");
+                                console.log("Results not available yet.");
                             }
                         } else {
                             podiumSection.style.display = "block";
@@ -210,6 +211,6 @@ async function loadCalendar() {
         });
 
     } catch (error) {
-        console.error("Chyba:", error);
+        console.error("Error:", error);
     }
 }

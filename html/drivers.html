@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 - 2026 Drivers</title>
+    <link rel="icon" type="image/png" href="../images/logo/f1-logo.png">
+    <link rel="stylesheet" href="../styles/drivers.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo"><img src="/images/logo/f1-logo.png" alt="F1 Logo">F1 - HOME OF MOTORSPORT</div>
+        <nav class="navbar">
+            <a href="../index.html">HOME</a>
+            <a href="results.html">RESULTS</a>
+            <a href="standings.html">STANDINGS</a>
+            <a href="drivers.html" class="active">DRIVERS</a>
+            <a href="calendar.html">CALENDAR</a>
+            <a href="techzone.html">TECH ZONE</a>
+            <a href="archive.html">ARCHIVE</a>
+        </nav>
+    </header>
+
+    <main class="drivers-page-container">
+        
+        <!-- MŘÍŽKA VŠECH JEZDCŮ -->
+        <div id="drivers-grid-section">
+            <h2 class="section-title">2026 FORMULA 1 DRIVERS</h2>
+            <div id="drivers-grid" class="drivers-grid">
+                <p style="color: #888896;">Loading drivers...</p>
+            </div>
+        </div>
+
+        <!-- DETAIL JEZDCE (ZPOČÁTKU SKRYTÝ) -->
+        <div id="driver-detail-view" class="driver-detail-view" style="display: none;">
+            <button id="back-to-grid-btn" class="back-to-grid-btn">&larr; Back to all drivers</button>
+            
+            <!-- Hero banner s fotkou a dynamickým pozadím -->
+            <div id="driver-profile-banner" class="driver-profile-banner">
+                <div class="driver-title-area">
+                    <h1 id="detail-name">--</h1>
+                    <div id="detail-meta" class="driver-meta-info">--</div>
+                </div>
+                <div class="hero-image-box">
+                    <img id="detail-driver-img" src="" alt="Driver Photo">
+                </div>
+                <div id="detail-watermark" class="driver-number-watermark">00</div>
+            </div>
+
+            <!-- Grid pro statistiky a životopis -->
+            <div class="driver-content-grid">
+                <div class="driver-card-box">
+                    <h3>Driver Statistics</h3>
+                    <table class="driver-stats-table">
+                        <tr>
+                            <td>Car Number</td>
+                            <td id="stat-num">--</td>
+                        </tr>
+                        <tr>
+                            <td>Championship Position</td>
+                            <td id="stat-pos">--</td>
+                        </tr>
+                        <tr>
+                            <td>Points</td>
+                            <td id="stat-points">--</td>
+                        </tr>
+                        <tr>
+                            <td>Nationality</td>
+                            <td id="stat-nationality">--</td>
+                        </tr>
+                        <tr>
+                            <td>Date of Birth</td>
+                            <td id="stat-dob">--</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="driver-card-box">
+                    <h3>Biography & Career</h3>
+                    <div id="detail-bio" class="driver-bio-text">
+                        <p>Loading biography...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 F1 - HOME OF MOTORSPORT</p>
+    </footer>
+
+    <script src="../script/drivers.js"></script>
+</body>
+</html>

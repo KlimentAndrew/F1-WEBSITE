@@ -133,8 +133,8 @@ body {
 }
 
 .track-mini {
-    max-width: 100px;
-    height: 65px;
+    max-width: 150px;
+    height: 105px;
     object-fit: contain;
     filter: invert(1) brightness(2);    
     transition: filter 0.2s ease;

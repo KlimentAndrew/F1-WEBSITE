@@ -280,3 +280,109 @@ async function loadLastRaceResults() {
         }
     }
 }
+
+/* JavaScript: Vlož do script.js */
+document.addEventListener("DOMContentLoaded", () => {
+    fetchDrivers2026();
+    setupModalClose();
+});
+
+async function fetchDrivers2026() {
+    const gridContainer = document.getElementById("index-drivers-grid");
+    
+    try {
+        const response = await fetch("https://api.jolpi.ca/ergast/f1/2026/driverstandings.json");
+        const data = await response.json();
+        
+        const standingsTable = data.MRData.StandingsTable;
+        if (!standingsTable || standingsTable.StandingsLists.length === 0) {
+            gridContainer.innerHTML = `<p style="color: #e10600;">Data for 2026 is not available.</p>`;
+            return;
+        }
+
+        const driversList = standingsTable.StandingsLists[0].DriverStandings;
+        renderDriversGrid(driversList);
+
+    } catch (error) {
+        console.error("API error:", error);
+        gridContainer.innerHTML = `<p style="color: #e10600;">Failed to load driver data.</p>`;
+    }
+}
+
+function renderDriversGrid(driversList) {
+    const gridContainer = document.getElementById("index-drivers-grid");
+    gridContainer.innerHTML = ""; 
+
+    driversList.forEach(item => {
+        const driver = item.Driver;
+        const constructor = item.Constructors ? item.Constructors[0] : { name: "N/A" };
+        const teamName = constructor.name;
+        const points = item.points;
+        const position = item.position;
+
+        const card = document.createElement("div");
+        card.className = "driver-card-simple";
+
+        card.onclick = () => {
+            openModal(driver, teamName, points, position);
+        };
+
+        card.innerHTML = `
+            <div class="driver-info">
+                <h3>${driver.givenName} <strong>${driver.familyName}</strong></h3>
+                <p>${teamName}</p>
+                <span class="driver-num">#${driver.permanentNumber || ""}</span>
+            </div>
+        `;
+
+        gridContainer.appendChild(card);
+    });
+}
+
+function openModal(driver, teamName, points, position) {
+    const overlay = document.getElementById("driver-modal-overlay");
+    const contentBox = document.getElementById("driver-modal-content");
+
+    overlay.style.display = "flex";
+
+    contentBox.innerHTML = `
+        <h2 style="margin-top: 0; color: #fff;">${driver.givenName} ${driver.familyName}</h2>
+        <p style="color: #e10600; text-transform: uppercase; font-weight: bold; font-size: 14px; margin-bottom: 20px;">${teamName}</p>
+        
+        <div class="modal-stat-row">
+            <span>Car Number</span>
+            <strong>#${driver.permanentNumber || "N/A"}</strong>
+        </div>
+        <div class="modal-stat-row">
+            <span>Championship Position</span>
+            <strong>P${position}</strong>
+        </div>
+        <div class="modal-stat-row">
+            <span>Points</span>
+            <strong>${points} PTS</strong>
+        </div>
+        <div class="modal-stat-row">
+            <span>Nationality</span>
+            <strong>${driver.nationality}</strong>
+        </div>
+        <div class="modal-stat-row" style="border-bottom: none;">
+            <span>Date of Birth</span>
+            <strong>${driver.dateOfBirth}</strong>
+        </div>
+    `;
+}
+
+function setupModalClose() {
+    const overlay = document.getElementById("driver-modal-overlay");
+    const closeBtn = document.getElementById("modal-close-btn");
+
+    closeBtn.onclick = () => {
+        overlay.style.display = "none";
+    };
+
+    window.onclick = (event) => {
+        if (event.target === overlay) {
+            overlay.style.display = "none";
+        }
+    };
+}

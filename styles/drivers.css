@@ -1,0 +1,340 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Formula1';
+    src: url('../formula-font/Formula1-Regular_web_0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Formula1';
+    src: url('../formula-font/Formula1-Bold_web_0.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Formula1-Wide';
+    src: url('../formula-font/Formula1-Wide_web_0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Formula1', sans-serif;    
+    background-color: #030303;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.main-header {
+    background-color: #030303;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 4px solid #e10600;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img {
+    height: 3vh;
+    margin-right: 10px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.navbar a {
+    color: #bababa;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 17px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    color: #e10600;
+}
+
+.drivers-page-container {
+    max-width: 1400px;
+    width: 92%;
+    margin: 40px auto;
+    flex: 1;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.drivers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.driver-card {
+    background-color: #0d0d12;
+    border: 1px solid #22222f;
+    border-radius: 8px;
+    padding: 25px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.driver-card:hover {
+    transform: translateY(-4px);
+    border-color: #e10600;
+}
+
+.driver-card h3 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.driver-card h3 strong {
+    font-weight: 800;
+}
+
+.driver-card p {
+    font-size: 0.85rem;
+    color: #888896;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.driver-card-num {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.04);
+    font-style: italic;
+}
+
+/* Tlačítko zpět */
+.back-to-grid-btn {
+    background: none;
+    border: none;
+    color: #888896;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: color 0.2s;
+}
+
+.back-to-grid-btn:hover {
+    color: #ffffff;
+}
+
+/* Hero banner - F1 styl */
+.driver-profile-banner {
+    background: #111116;
+    border: 1px solid #22222f;
+    border-radius: 12px;
+    padding: 0 60px;
+    height: 380px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    transition: background 0.3s ease;
+}
+
+.driver-profile-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background-color: var(--team-color, #e10600);
+}
+
+.driver-title-area {
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.driver-title-area h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+
+
+.driver-meta-info {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-image-box {
+    position: absolute;
+    right: 80px;
+    top: 150%;
+    height: 150%;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-image-box img {
+    height: 200%;
+    object-fit: contain;
+    filter: drop-shadow(-5px 0px 20px rgba(0,0,0,0.6));
+}
+
+.driver-number-watermark {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    font-style: italic;
+    line-height: 1;
+    user-select: none;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Grid pro statistiky a bio */
+.driver-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.driver-card-box {
+    background-color: #0d0d12;
+    border: 1px solid #22222f;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.driver-card-box h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #22222f;
+}
+
+.driver-stats-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.driver-stats-table td {
+    padding: 12px 0;
+    border-bottom: 1px solid #181824;
+    font-size: 0.95rem;
+}
+
+.driver-stats-table tr:last-child td {
+    border-bottom: none;
+}
+
+.driver-stats-table td:first-child {
+    color: #888896;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.driver-stats-table td:last-child {
+    text-align: right;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.driver-bio-text {
+    color: #b0b0c0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.driver-bio-text p {
+    margin-bottom: 15px;
+}
+
+.driver-bio-text strong {
+    color: #ffffff;
+}
+
+.main-footer {
+    background-color: #111118;
+    padding: 20px 40px;
+    text-align: center;
+    border-top: 1px solid #22222f;
+    color: #666677;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+@media (max-width: 900px) {
+    .driver-content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .driver-profile-banner {
+        height: auto;
+        padding: 40px 20px;
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image-box {
+        position: relative;
+        right: auto;
+        height: 180px;
+        margin-top: 20px;
+    }
+    .driver-title-area h1 {
+        font-size: 2.2rem;
+    }
+    .driver-number-watermark {
+        display: none;
+    }
+}
