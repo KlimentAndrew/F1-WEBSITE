@@ -386,3 +386,81 @@ function setupModalClose() {
         }
     };
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetchStatusTrivia();
+});
+
+async function fetchStatusTrivia() {
+    const triviaContainer = document.getElementById("status-trivia-grid");
+    
+    try {
+        // Stáhneme výsledky posledních závodů roku 2026
+        const response = await fetch("https://api.jolpi.ca/ergast/f1/2026/results.json?limit=1000");
+        const data = await response.json();
+        
+        const races = data.MRData.RaceTable.Races;
+        if (!races || races.length === 0) {
+            triviaContainer.innerHTML = `<p style="color: #888896;">No race data available yet for 2026.</p>`;
+            return;
+        }
+
+        let totalFinishes = 0;
+        let totalRetirements = 0;
+        let engineFailures = 0;
+        let accidentsOrCollisions = 0;
+        let totalEntries = 0;
+
+        // Projdeme všechny závody a všechny výsledky
+        races.forEach(race => {
+            race.Results.forEach(result => {
+                totalEntries++;
+                const status = result.status;
+
+                // Vyhodnocení statusu
+                if (status === "Finished") {
+                    totalFinishes++;
+                } else if (status.includes("Engine") || status.includes("Power Unit")) {
+                    engineFailures++;
+                    totalRetirements++;
+                } else if (status.includes("Accident") || status.includes("Collision")) {
+                    accidentsOrCollisions++;
+                    totalRetirements++;
+                } else {
+                    totalRetirements++; // Ostatní typy odstoupení (Gearbox, Electrical, atd.)
+                }
+            });
+        });
+
+        // Výpočet procenta dojetí do cíle
+        const finishPercentage = totalEntries > 0 ? ((totalFinishes / totalEntries) * 100).toFixed(1) : 0;
+
+        // Vykreslení karet se zajímavostmi na index
+        triviaContainer.innerHTML = `
+            <div class="trivia-card">
+                <h3>Reliability Rate</h3>
+                <p class="trivia-number">${finishPercentage}%</p>
+                <span class="trivia-desc">Of all car entries successfully crossed the finish line.</span>
+            </div>
+            <div class="trivia-card">
+                <h3>Total Retirements</h3>
+                <p class="trivia-number">${totalRetirements}</p>
+                <span class="trivia-desc">Combined technical failures and race incidents so far.</span>
+            </div>
+            <div class="trivia-card">
+                <h3>Power Unit Issues</h3>
+                <p class="trivia-number">${engineFailures}</p>
+                <span class="trivia-desc">Total engine or power unit related breakdowns.</span>
+            </div>
+            <div class="trivia-card">
+                <h3>Accidents & Crashes</h3>
+                <p class="trivia-number">${accidentsOrCollisions}</p>
+                <span class="trivia-desc">Incidents ending up in walls or collisions.</span>
+            </div>
+        `;
+
+    } catch (error) {
+        console.error("Error loading status trivia:", error);
+        triviaContainer.innerHTML = `<p style="color: #e10600;">Failed to load trivia insights.</p>`;
+    }
+}

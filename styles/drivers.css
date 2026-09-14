@@ -130,7 +130,7 @@ body {
     bottom: 10px;
     font-size: 3rem;
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.14);
     font-style: italic;
 }
 
@@ -221,12 +221,12 @@ body {
 
 .driver-number-watermark {
     position: absolute;
-    right: 40px;
+    right: 22%;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 16rem;
+    font-size: 22rem;
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.2);
     font-style: italic;
     line-height: 1;
     user-select: none;

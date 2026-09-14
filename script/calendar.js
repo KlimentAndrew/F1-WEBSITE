@@ -31,7 +31,7 @@ const circuitSpecs = {
 };
 
 const teamColors = {
-    "red_bull": "#1d2a4a",
+    "red_bull": "#0d3cb3",
     "ferrari": "#e10600",
     "mercedes": "#00d2be",
     "mclaren": "#ff8000",

@@ -76,7 +76,7 @@ body {
     display: flex;
     align-items: center;
     padding: 0 10%;
-    background: linear-gradient(110deg, #09090d, 35%, rgba(0, 0, 0, 0.7) 50%, transparent 65%), 
+    background: linear-gradient(110deg, #000000, 35%, rgba(13, 13, 13, 0.5) 50%, transparent 65%), 
                 url('/images/background/background.avif'); 
                 
     background-size: cover;
@@ -264,7 +264,7 @@ body {
 }
 
 .guide-card {
-    background-color: #0d0d12;
+    background-color: #030303;
     padding: 30px;
     border-radius: 8px;
     border: 1px solid #1f1f26;
@@ -305,7 +305,7 @@ body {
 }
 
 .tyre-card {
-    background: #15151e;
+    background: #030303;
     padding: 30px;
     border-radius: 4px;
     flex: 1;
@@ -440,9 +440,7 @@ body {
     font-size: 1.2rem;
 }
 
-/* Styly pro mřížku a detailní panel */
-/* Mřížka jezdců na indexu */
-/* CSS: Vlož do style.css */
+
 
 
 .index-drivers-section {
@@ -466,7 +464,7 @@ body {
 .driver-card-simple {
     background: #15151a;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 20px;
     cursor: pointer;
     transition: transform 0.2s ease, border-color 0.2s ease;
@@ -511,12 +509,13 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    font-size: 20px;
 }
 
 .driver-modal-box {
     background: #15151a;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
+    border-radius: 6px;
     width: 100%;
     max-width: 600px;
     padding: 30px;
@@ -541,6 +540,69 @@ body {
     padding: 10px 0;
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
+
+
+
+.trivia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.trivia-card {
+    background-color: #0d0d12;
+    border: 1px solid #22222f;
+    border-radius: 6px;
+    padding: 55px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+
+
+.trivia-card h3 {
+    font-size: 0.95rem;
+    color: #888896;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.trivia-number {
+    font-size: 50px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.trivia-desc {
+    font-size: 0.85rem;
+    color: #b0b0c0;
+    line-height: 1.4;
+}
+
+.trivia-section {
+    width: 95%;
+    margin: 50px auto;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+
+
+
 
 
 
