@@ -10,7 +10,7 @@ const circuitSpecs = {
     "jeddah": { length: "6.174 km", laps: 50, firstGp: "2021" },
     "miami": { length: "5.412 km", laps: 57, firstGp: "2022" },
     "monaco": { length: "3.337 km", laps: 78, firstGp: "1950" },
-    "barcelona": { length: "4.657 km", laps: 66, firstGp: "1991" },
+    "catalunya": { length: "4.657 km", laps: 66, firstGp: "1991" },
     "villeneuve": { length: "4.361 km", laps: 70, firstGp: "1978" },
     "red_bull_ring": { length: "4.318 km", laps: 71, firstGp: "1970" },
     "silverstone": { length: "5.891 km", laps: 52, firstGp: "1950" },
@@ -18,7 +18,9 @@ const circuitSpecs = {
     "spa": { length: "7.004 km", laps: 44, firstGp: "1950" },
     "zandvoort": { length: "4.259 km", laps: 72, firstGp: "1952" },
     "monza": { length: "5.793 km", laps: 53, firstGp: "1950" },
+    "madring": { length: "5.414 km", laps: 57, firstGp: "2026" },
     "baku": { length: "6.003 km", laps: 51, firstGp: "2016" },
+    "sepang": { length: "5.543 km", laps: 56, firstGp: "1999" },
     "marina_bay": { length: "4.940 km", laps: 62, firstGp: "2008" },
     "americas": { length: "5.513 km", laps: 56, firstGp: "2012" },
     "rodriguez": { length: "4.304 km", laps: 71, firstGp: "1963" },
@@ -43,37 +45,35 @@ const teamColors = {
 
 
 
-function getFileNameByCountry(country) {
-
-    
-
+function getFileNameByCircuit(circuitId) {
     const mapping = {
-        "Australia": "Australia",
-        "China": "China",
-        "Japan": "Suzuka",
-        "Bahrain": "Bahrain",
-        "Saudi Arabia": "Saudi-Arabia",
-        "USA": "Miami",
-        "Monaco": "Monaco",
-        "Canada": "Canada",
-        "Spain": "Barcelona",
-        "Austria": "Austria",
-        "UK": "Britian", 
-        "Hungary": "Hungary",
-        "Belgium": "Belgium",
-        "Netherlands": "Zandvoort",
-        "Italy": "Monza",
-        "Spain": "Madrid",
-        "Azerbaijan": "Azerbaijan",
-        "Singapore": "Singapore",
-        "Mexico": "Mexico",
-        "Brazil": "Brazil",
-        "United States": "COTA",
-        "Las Vegas": "Las-Vegas",
-        "Qatar": "Qatar",
-        "UAE": "Abu-Dhabi"
+        "albert_park": "Australia",
+        "shanghai": "China",
+        "suzuka": "Suzuka",
+        "bahrain": "Bahrain",
+        "jeddah": "Saudi-Arabia",
+        "miami": "Miami",
+        "monaco": "Monaco",
+        "catalunya": "Barcelona", // Pro kolo 7 (Barcelona-Catalunya)
+        "madring": "Madrid",       // Pro kolo 14 (Madring / Madrid)
+        "villeneuve": "Canada",
+        "red_bull_ring": "Austria",
+        "silverstone": "Britian",
+        "spa": "Belgium",
+        "hungaroring": "Hungary",
+        "zandvoort": "Zandvoort",
+        "monza": "Monza",
+        "baku": "Azerbaijan",
+        "sepang": "Sepang",      // Zohledněno i pro Sepang v datech
+        "marina_bay": "Singapore",
+        "americas": "COTA",
+        "rodriguez": "Mexico",
+        "interlagos": "Brazil",
+        "vegas": "Las-Vegas",      // Upraveno podle tvého JSONu ("vegas")
+        "losail": "Qatar",
+        "yas_marina": "Abu-Dhabi"
     };
-    return mapping[country] || country;
+    return mapping[circuitId] || circuitId;
 }
 
 async function loadCalendar() {
@@ -90,7 +90,8 @@ async function loadCalendar() {
         races.forEach(race => {
             const circuitId = race.Circuit.circuitId;
             const country = race.Circuit.Location.country;
-            const fileName = getFileNameByCountry(country);
+            const fileName = getFileNameByCircuit(circuitId);
+            
             const specs = circuitSpecs[circuitId] || { length: "N/A", laps: "N/A", firstGp: "N/A" };
 
             const raceDate = new Date(race.date);
