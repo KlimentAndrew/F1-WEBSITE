@@ -281,7 +281,6 @@ async function loadLastRaceResults() {
     }
 }
 
-/* JavaScript: Vlož do script.js */
 document.addEventListener("DOMContentLoaded", () => {
     fetchDrivers2026();
     setupModalClose();
@@ -395,7 +394,6 @@ async function fetchStatusTrivia() {
     const triviaContainer = document.getElementById("status-trivia-grid");
     
     try {
-        // Stáhneme výsledky posledních závodů roku 2026
         const response = await fetch("https://api.jolpi.ca/ergast/f1/2026/results.json?limit=1000");
         const data = await response.json();
         
@@ -411,13 +409,11 @@ async function fetchStatusTrivia() {
         let accidentsOrCollisions = 0;
         let totalEntries = 0;
 
-        // Projdeme všechny závody a všechny výsledky
         races.forEach(race => {
             race.Results.forEach(result => {
                 totalEntries++;
                 const status = result.status;
 
-                // Vyhodnocení statusu
                 if (status === "Finished") {
                     totalFinishes++;
                 } else if (status.includes("Engine") || status.includes("Power Unit")) {
@@ -427,15 +423,13 @@ async function fetchStatusTrivia() {
                     accidentsOrCollisions++;
                     totalRetirements++;
                 } else {
-                    totalRetirements++; // Ostatní typy odstoupení (Gearbox, Electrical, atd.)
+                    totalRetirements++; 
                 }
             });
         });
 
-        // Výpočet procenta dojetí do cíle
         const finishPercentage = totalEntries > 0 ? ((totalFinishes / totalEntries) * 100).toFixed(1) : 0;
 
-        // Vykreslení karet se zajímavostmi na index
         triviaContainer.innerHTML = `
             <div class="trivia-card">
                 <h3>Reliability Rate</h3>

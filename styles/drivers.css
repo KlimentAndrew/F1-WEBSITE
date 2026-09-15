@@ -193,8 +193,6 @@ body {
     margin-bottom: 10px;
 }
 
-
-
 .driver-meta-info {
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.7);
@@ -234,12 +232,18 @@ body {
     pointer-events: none;
 }
 
-/* Grid pro statistiky a bio */
+/* Grid pro statistiky nahoře */
 .driver-content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     margin-top: 30px;
+}
+
+/* Celošířkový box dole pro životopis */
+.driver-bio-full-width {
+    margin-top: 30px;
+    width: 100%;
 }
 
 .driver-card-box {
@@ -296,6 +300,10 @@ body {
 
 .driver-bio-text p {
     margin-bottom: 15px;
+}
+
+.driver-bio-text p:last-child {
+    margin-bottom: 0;
 }
 
 .driver-bio-text strong {

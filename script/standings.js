@@ -5,7 +5,6 @@ const LAST_RESULTS_URL = "https://api.jolpica.io/f1/current/last/results.json";
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Kontrola, zda jsme na podstránce standings.html (podle přítomnosti ID v HTML)
     if (document.getElementById("drivers-full-standings")) {
         loadFullStandings();
     }
@@ -13,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function loadFullStandings() {
     try {
-        // Načtení dat pro jezdce i konstruktéry najednou
         const [driversResponse, constructorsResponse] = await Promise.all([
             fetch(DRIVERS_URL),
             fetch(TEAMS_URL)
@@ -22,7 +20,6 @@ async function loadFullStandings() {
         const driversData = await driversResponse.json();
         const constructorsData = await constructorsResponse.json();
 
-        // 1. VYKRESLENÍ JEZDCŮ
         const driverList = driversData.MRData.StandingsTable.StandingsLists[0].DriverStandings;
         const driversContainer = document.getElementById("drivers-full-standings");
         driversContainer.innerHTML = ""; // Smaže text "Loading..."
@@ -42,7 +39,6 @@ async function loadFullStandings() {
         });
         
 
-        // 2. VYKRESLENÍ KONSTRUKTÉRŮ
         const constructorList = constructorsData.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
         const constructorsContainer = document.getElementById("constructors-full-standings");
         constructorsContainer.innerHTML = ""; // Smaže text "Loading..."
@@ -50,16 +46,12 @@ async function loadFullStandings() {
         constructorList.forEach(item => {
             const row = document.createElement("tr");
             
-            // 1. Zkontrolujeme, zda jde o první místo v poháru konstruktérů
             const isLeader = item.position === "1";
             
-            // 2. Pokud ano, přidáme pohár, jinak necháme jen číslo pozice
             const posContent = isLeader ? ` ${item.position}` : item.position;
             
-            // 3. Pokud ano, obarvíme název týmu na červeno, jinak nic
             const nameStyle = isLeader ? `style="color: #D3AF37;"` : "";
 
-            // 4. Vygenerujeme řádek s proměnnými a třídou pro body
             row.innerHTML = `
                 <td>${posContent}</td>
                 <td><strong ${nameStyle}>${item.Constructor.name}</strong></td>

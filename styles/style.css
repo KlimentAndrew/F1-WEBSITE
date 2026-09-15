@@ -47,14 +47,15 @@ body {
 .logo img {
     height: 3vh;
     margin-right: 10px;
-    
 }
 
 .logo {
     font-size: 26px;
     font-weight: 700;
     letter-spacing: 1px;
-    
+    display: flex;
+    align-items: center;
+    color: #fff;
 }
 
 .navbar a {
@@ -497,7 +498,6 @@ body {
     font-style: italic;
 }
 
-/* Styly pro modální okno */
 .driver-modal-overlay {
     position: fixed;
     top: 0;
@@ -673,4 +673,5 @@ body {
     .recent-results-box .view-all-btn {
         font-size: 0.85rem;   
     }
+    
 }

@@ -24,7 +24,6 @@ const techzoneContent = {
 let currentCategory = "monopost";
 let currentSlideIndex = 0;
 
-// DOM Elements
 const subTabs = document.querySelectorAll('.sub-tab');
 const interactiveStage = document.getElementById('interactiveStage');
 const textCategoryLayout = document.getElementById('textCategoryLayout');
@@ -37,13 +36,11 @@ const modalTitle = document.getElementById('modalTitle');
 const modalDesc = document.getElementById('modalDesc');
 const closeLiquidModal = document.getElementById('closeLiquidModal');
 
-// Text Side Layout Elements
 const layoutSideImage = document.getElementById('layoutSideImage');
 const textContentTag = document.getElementById('textContentTag');
 const textContentTitle = document.getElementById('textContentTitle');
 const textContentBody = document.getElementById('textContentBody');
 
-// Universal HUD Controls
 const hudAssetCounter = document.getElementById('hudAssetCounter');
 const hudAssetTitle = document.getElementById('hudAssetTitle');
 const btnPrevAsset = document.getElementById('btnPrevAsset');
@@ -66,16 +63,13 @@ function renderActiveItem() {
     const item = activeArray[currentSlideIndex];
     if (!item) return;
 
-    // Aktualizace spodní společné lišty HUD
     hudAssetTitle.textContent = item.title;
     hudAssetCounter.textContent = `${String(currentSlideIndex + 1).padStart(2, '0')} // ${String(activeArray.length).padStart(2, '0')}`;
 
-    // VYČIŠTĚNÍ STARÝCH TEČEK před jakýmkoliv vykreslením
     document.querySelectorAll('.tech-glow-node').forEach(node => node.remove());
     dismissLiquidModal();
 
     if (currentCategory === "monopost") {
-        // Zapnout interaktivní plochu s obrázkem na pozadí
         textCategoryLayout.style.display = "none";
         interactiveStage.style.display = "block";
 
