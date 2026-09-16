@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 - 2026 Teams</title>
+    <link rel="icon" type="image/png" href="../images/logo/f1-logo.png">
+    <link rel="stylesheet" href="../styles/teams.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="../images/logo/f1-logo.png" alt="F1 Logo" onerror="this.style.display='none'">
+            F1 - HOME OF MOTORSPORT
+        </div>
+        <nav class="navbar">
+            <a href="../index.html">HOME</a>
+            <a href="results.html">RESULTS</a>
+            <a href="standings.html">STANDINGS</a>
+            <a href="drivers.html">DRIVERS</a>
+            <a href="teams.html" class="active">TEAMS</a>
+            <a href="calendar.html">CALENDAR</a>
+            <a href="techzone.html">TECH ZONE</a>
+            <a href="archive.html">ARCHIVE</a>
+        </nav>
+    </header>
+
+    <main class="teams-page-container">
+        
+        <!-- MŘÍŽKA VŠECH TÝMŮ -->
+        <div id="teams-grid-section">
+            <h2 class="section-title">2026 FORMULA 1 TEAMS</h2>
+            <div id="teams-grid" class="teams-grid">
+                <p style="color: #888896;">Loading teams...</p>
+            </div>
+        </div>
+
+        <!-- DETAIL TÝMU (ZPOČÁTKU SKRYTÝ) -->
+        <div id="team-detail-view" class="team-detail-view" style="display: none;">
+            <button id="back-to-teams-btn" class="back-to-grid-btn">&larr; Back to all teams</button>
+            
+            <!-- Hero banner s monopostem vedle textu -->
+            <div id="team-profile-banner" class="team-profile-banner">
+                <div class="team-banner-flex-content">
+                    <div class="team-title-area">
+                        <h1 id="detail-team-name">--</h1>
+                        <div id="detail-team-meta" class="team-meta-info">--</div>
+                    </div>
+                    <div class="hero-image-box">
+                        <img id="detail-car-img" src="" alt="Team Car Photo">
+                    </div>
+                </div>
+                <div id="detail-team-watermark" class="team-watermark">TEAM</div>
+            </div>
+
+            <!-- Horní mřížka: Vlevo statistiky týmu, vpravo jezdci -->
+            <div class="team-content-grid">
+                <div class="team-card-box">
+                    <h3>Team Overview</h3>
+                    <table class="team-stats-table">
+                        <tr>
+                            <td>Full Team Name</td>
+                            <td id="stat-full-name">--</td>
+                        </tr>
+                        <tr>
+                            <td>Base Location</td>
+                            <td id="stat-base">--</td>
+                        </tr>
+                        <tr>
+                            <td>Team Principal</td>
+                            <td id="stat-principal">--</td>
+                        </tr>
+                        <tr>
+                            <td>Power Unit</td>
+                            <td id="stat-power-unit">--</td>
+                        </tr>
+                        <tr>
+                            <td>World Championships</td>
+                            <td id="stat-titles">--</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="team-card-box">
+                    <h3>2026 Drivers Lineup</h3>
+                    <div id="detail-team-drivers" class="team-drivers-list">
+                        <!-- Tady se dynamicky načtou kartičky obou jezdců -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPODNÍ VELKÉ CELOŠÍŘKOVÉ OKNO PRO HISTORII TÝMU A FOTKY -->
+            <div class="team-card-box team-bio-full-width">
+                <h3>Team History & Technical Specs</h3>
+                <div id="detail-custom-team-bio" class="team-bio-text">
+                    <!-- Tady bude vlastní text a fotky pro každý tým -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 F1 - HOME OF MOTORSPORT</p>
+    </footer>
+
+    <script src="../script/teams.js"></script>
+</body>
+</html>

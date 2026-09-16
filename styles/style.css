@@ -265,10 +265,16 @@ body {
 }
 
 .guide-card {
-    background-color: #030303;
+    background: #030303;
     padding: 30px;
-    border-radius: 8px;
-    border: 1px solid #1f1f26;
+    border-radius: 4px;
+    flex: 1;
+    border-bottom: 4px solid #484848;
+    transition: transform 0.3s ease;
+}
+
+.guide-card:hover {
+    transform: translateY(-5px);
 }
 
 .card-icon {

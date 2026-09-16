@@ -1,3 +1,4 @@
+/* Reset a fonty */
 * {
     margin: 0;
     padding: 0;
@@ -26,12 +27,16 @@
 }
 
 body {
-    font-family: 'Formula1', sans-serif;    
+    font-family: 'Formula1', sans-serif;
     background-color: #030303;
     color: #ffffff;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+/* Hlavička a navigace */
 .main-header {
     background-color: #030303;
     display: flex;
@@ -71,8 +76,8 @@ body {
     color: #e10600;
 }
 
-.drivers-page-container {
-    max-width: 1400px;
+.teams-page-container {
+    max-width: 90%;
     width: 92%;
     margin: 40px auto;
     flex: 1;
@@ -85,13 +90,14 @@ body {
     text-transform: uppercase;
 }
 
-.drivers-grid {
+/* Mřížka týmů */
+.teams-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 20px;
 }
 
-.driver-card {
+.team-card {
     background-color: #0d0d12;
     border: 1px solid #22222f;
     border-radius: 4px;
@@ -100,41 +106,68 @@ body {
     position: relative;
     overflow: hidden;
     transition: transform 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px;
 }
 
-.driver-card:hover {
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: var(--card-accent-color, #e10600);
+}
+
+.team-card:hover {
     transform: translateY(-4px);
-    border-color: #e10600;
+    border-color: var(--card-accent-color, #e10600);
 }
 
-.driver-card h3 {
-    font-size: 1.2rem;
+.team-card h3 {
+    font-size: 20px;
     color: #fff;
     margin-bottom: 5px;
-}
-
-.driver-card h3 strong {
+    text-transform: uppercase;
     font-weight: 800;
 }
 
-.driver-card p {
-    font-size: 0.85rem;
+.team-card p {
+    font-size: 12px;
     color: #888896;
     text-transform: uppercase;
     font-weight: 600;
 }
 
-.driver-card-num {
-    position: absolute;
-    right: 20px;
-    bottom: 10px;
-    font-size: 3rem;
-    font-weight: 900;
-    color: rgba(255, 255, 255, 0.14);
-    font-style: italic;
+.team-card-badge {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 4px 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #22222f;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #d1d1e0;
+    width: fit-content;
 }
 
-/* Tlačítko zpět */
+.team-card-watermark {
+    position: absolute;
+    right: -10px;
+    bottom: -15px;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.07);
+    font-style: italic;
+    user-select: none;
+    pointer-events: none;
+    text-transform: uppercase;
+}
+
 .back-to-grid-btn {
     background: none;
     border: none;
@@ -151,23 +184,18 @@ body {
     color: #ffffff;
 }
 
-/* Hero banner - F1 styl */
-.driver-profile-banner {
+.team-profile-banner {
     background: #111116;
     border: 1px solid #22222f;
     border-radius: 12px;
-    padding: 0 60px;
-    height: 380px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 80px 60px;
     position: relative;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     transition: background 0.3s ease;
 }
 
-.driver-profile-banner::before {
+.team-profile-banner::before {
     content: '';
     position: absolute;
     top: 0;
@@ -177,15 +205,25 @@ body {
     background-color: var(--team-color, #e10600);
 }
 
-.driver-title-area {
+.team-banner-flex-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    position: relative;
     z-index: 3;
+    width: 100%;
+}
+
+.team-title-area {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.driver-title-area h1 {
-    font-size: 3.5rem;
+.team-title-area h1 {
+    font-size: 50px;
     font-weight: 800;
     text-transform: uppercase;
     color: #ffffff;
@@ -193,7 +231,7 @@ body {
     margin-bottom: 10px;
 }
 
-.driver-meta-info {
+.team-meta-info {
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.7);
     font-weight: 600;
@@ -202,51 +240,51 @@ body {
 }
 
 .hero-image-box {
-    position: absolute;
-    right: 80px;
-    top: 150%;
-    height: 150%;
-    z-index: 2;
+    flex: 1;
     display: flex;
-    align-items: flex-end;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .hero-image-box img {
-    height: 200%;
+    max-width: 100%;
+    height: auto;
+    max-height: 220px;
     object-fit: contain;
-    filter: drop-shadow(-5px 0px 20px rgba(0,0,0,0.6));
+    filter: drop-shadow(-5px 10px 20px rgba(0, 0, 0, 0.7));
 }
 
-.driver-number-watermark {
+.team-watermark {
     position: absolute;
-    right: 22%;
+    right: 5%;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 22rem;
+    font-size: 14rem;
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.05);
     font-style: italic;
     line-height: 1;
     user-select: none;
     z-index: 1;
     pointer-events: none;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
-/* Grid pro statistiky nahoře */
-.driver-content-grid {
+/* Detail týmu - obsah */
+.team-content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     margin-top: 30px;
 }
 
-/* Celošířkový box dole pro životopis */
-.driver-bio-full-width {
+.team-bio-full-width {
     margin-top: 30px;
     width: 100%;
 }
 
-.driver-card-box {
+.team-card-box {
     background-color: #0d0d12;
     border: 1px solid #22222f;
     border-radius: 10px;
@@ -254,7 +292,7 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-.driver-card-box h3 {
+.team-card-box h3 {
     font-size: 1.2rem;
     font-weight: 700;
     color: #ffffff;
@@ -264,52 +302,101 @@ body {
     border-bottom: 1px solid #22222f;
 }
 
-.driver-stats-table {
+/* Tabulka statistik */
+.team-stats-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.driver-stats-table td {
+.team-stats-table td {
     padding: 12px 0;
     border-bottom: 1px solid #181824;
     font-size: 0.95rem;
 }
 
-.driver-stats-table tr:last-child td {
+.team-stats-table tr:last-child td {
     border-bottom: none;
 }
 
-.driver-stats-table td:first-child {
+.team-stats-table td:first-child {
     color: #888896;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 16px;
 }
 
-.driver-stats-table td:last-child {
+.team-stats-table td:last-child {
     text-align: right;
     color: #ffffff;
-    font-weight: 700;
+    font-weight: 400;
 }
 
-.driver-bio-text {
+/* Jezdci */
+.team-drivers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.team-driver-item {
+    background-color: #12121a;
+    border: 1px solid #22222f;
+    border-radius: 6px;
+    padding: 35px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team-driver-item-name {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.team-driver-item-num {
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--team-color, #e10600);
+    font-style: italic;
+}
+
+/* Texty a fotky v biu */
+.team-bio-text {
     color: #b0b0c0;
     font-size: 0.95rem;
     line-height: 1.8;
 }
 
-.driver-bio-text p {
+.team-bio-text p {
     margin-bottom: 15px;
 }
 
-.driver-bio-text p:last-child {
+.team-bio-text p:last-child {
     margin-bottom: 0;
 }
 
-.driver-bio-text strong {
+.team-bio-text strong {
     color: #ffffff;
 }
 
+.team-custom-photos {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.team-custom-photos img {
+    flex: 1 1 200px;
+    max-width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #282836;
+}
+
+/* Patčka */
 .main-footer {
     background-color: #111118;
     padding: 20px 40px;
@@ -320,29 +407,36 @@ body {
     margin-top: auto;
 }
 
+/* Responzivita */
 @media (max-width: 900px) {
-    .driver-content-grid {
+    .team-banner-flex-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image-box {
+        justify-content: center;
+    }
+
+    .team-content-grid {
         grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 600px) {
-    .driver-profile-banner {
-        height: auto;
-        padding: 40px 20px;
-        flex-direction: column;
-        text-align: center;
+    .team-profile-banner {
+        padding: 30px 20px;
     }
-    .hero-image-box {
-        position: relative;
-        right: auto;
-        height: 180px;
-        margin-top: 20px;
+    
+    .team-title-area h1 {
+        font-size: 2rem;
     }
-    .driver-title-area h1 {
-        font-size: 2.2rem;
+
+    .hero-image-box img {
+        max-height: 140px;
     }
-    .driver-number-watermark {
+
+    .team-watermark {
         display: none;
     }
 }

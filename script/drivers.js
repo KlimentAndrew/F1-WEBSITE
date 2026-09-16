@@ -420,7 +420,7 @@ function showDriverDetail(item, teamName) {
         gradientBg = "linear-gradient(135deg, #000000 10%, #00d2be 100%)";
     } else if (lowerTeam.includes("red bull")) {
         teamColor = "#0d3cb3";
-        gradientBg = "linear-gradient(135deg, #000000 10%, #1d2a4a 100%)";
+        gradientBg = "linear-gradient(135deg, #000000 10%, #0d3cb3 100%)";
     } else if (lowerTeam.includes("mclaren")) {
         teamColor = "#ff8000";
         gradientBg = "linear-gradient(135deg, #000000 10%, #ff8000 100%)";
