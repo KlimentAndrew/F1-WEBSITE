@@ -390,13 +390,12 @@ body {
 .team-custom-photos img {
     flex: 1 1 200px;
     max-width: 100%;
-    height: 450px;
+    height: 40vh;
     object-fit: cover;
     border-radius: 8px;
     border: 1px solid #282836;
 }
 
-/* Patčka */
 .main-footer {
     background-color: #111118;
     padding: 20px 40px;
@@ -407,7 +406,30 @@ body {
     margin-top: auto;
 }
 
-/* Responzivita */
+@media (max-width: 1400px) {
+    .team-custom-photos img {
+    flex: 1 1 200px;
+    max-width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #282836;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .team-custom-photos img {
+    flex: 1 1 200px;
+    max-width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #282836;
+    }
+}
+
+
 @media (max-width: 900px) {
     .team-banner-flex-content {
         flex-direction: column;
@@ -421,6 +443,14 @@ body {
     .team-content-grid {
         grid-template-columns: 1fr;
     }
+    .team-custom-photos img {
+    flex: 1 1 200px;
+    max-width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #282836;
+}
 }
 
 @media (max-width: 600px) {
