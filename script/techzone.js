@@ -1,154 +1,79 @@
-const techzoneContent = {
-    "monopost": [
-        { key: "mono1", tag: "FIA REGULATION", title: "Downsizing & Weight", hotspots: [{ x: 25.0, y: 65.0, label: "Downsizing & Weight", text: "Highlights the strict 768 kg minimum weight limit (a 30 kg reduction). The downsized, lightweight carbon-composite chassis is optimized for maximum low-speed agility." },] },
-        { key: "mono2", tag: "FIA REGULATION", title: "Width & Length", hotspots: [{ x: 75.5, y: 75.0, label: "Width", text: "Limited to a maximum of 1900 mm (reduced from 2000 mm) to narrow the aerodynamic profile and create more overtaking space on track." },{ x: 17.5, y: 50.0, label: "Length", text: "The total bumper-to-bumper length is approximately 5500 mm, while the technical wheelbase (axle-to-axle) is restricted to 3100 mm to force a more compact chassis." }] },
-        { key: "mono3", tag: "FIA REGULATION", title: "Front Wheel Custom Engineering", hotspots: [{ x: 20.0, y: 55.0, label: "Front Wheel Custom Engineering", text: "Focuses on the front wheel assembly, now featuring a narrower 280 mm tyre width. Teams engineer these rims entirely in-house for bespoke aerodynamic ducting." }] },
-        { key: "mono4", tag: "FIA REGULATION", title: "Active Aerodynamics - Part 1", hotspots: [{ x: 70.0, y: 40.0, label: "Active Aerodynamics - Part 1", text: "Details the active front wing flaps. They dynamically adjust between Z-Mode (high downforce for cornering) and X-Mode (minimum drag for straights).." }] },
-        { key: "mono5", tag: "FIA REGULATION", title: "Active Aerodynamics - Part 2", hotspots: [{ x: 40.0, y: 55.0, label: "Active Aerodynamics - Part 2", text: "Shows the active rear wing operating in sync with the front elements. The wing mechanically shifts into X-Mode on straightaways to unlock maximum top speed.." }] },
-        { key: "mono6", tag: "FIA REGULATION", title: "The Halo Safety Device", hotspots: [{ x: 55.0, y: 50.0, label: "The Halo Safety Device", text: "Displays the mandatory titanium Halo structure, engineered to withstand a massive 125 kN load. Its aerodynamic fairing minimizes airflow disruption into the engine intake." }] }
-        
-    ],
-    "tires": [
-        { key: "all", tag: "PIRELLI MOTORSPORT", title: "P-Zero White - Hard Compound", htmlContent: "<p>Designed for maximum endurance and tracks with high-energy lateral loads (like Silverstone or Barcelona).</p><p>This compound uses a high-density thermal resistance polymer layout to ensure the lowest possible wear rate over extensive racing stints, though it requires longer preparation phases to reach optimum core operational temperature.</p>" },
-        { key: "all", tag: "PIRELLI MOTORSPORT", title: "P-Zero Yellow - Medium Compound", htmlContent: "<p>The baseline specification compound used across nearly every race weekend format.</p><p>Strikes an absolute balance between immediate chemical grip scaling and mechanical degradation layout, serving as the core strategy tier for long distance endurance phases.</p>" },
-        { key: "all", tag: "PIRELLI MOTORSPORT", title: "P-Zero Red - Soft Compound", htmlContent: "<p>Engineered strictly for ultimate peak mechanical adhesion during short-run qualifying trim.</p><p>This high-grip profile compound offers instant operating range compliance, but suffers high thermal degradation levels under full fuel loads.</p>" },
-        { key: "all", tag: "PIRELLI MOTORSPORT", title: "Cinturato Green - Intermediate", htmlContent: "<p>The intermediate tyres are the most versatile of the rain tyres, designed for use on a damp track or in light rain.</p><p>The tread pattern features shallow grooves that efficiently disperse standing water while maintaining a high contact patch area, preventing aquaplaning without overheating too quickly if the track begins to dry out.</p>" },
-        { key: "all", tag: "PIRELLI MOTORSPORT", title: "Cinturato Blue - Full Wet", htmlContent: "<p>The full wet tyres are engineered for heavy rain and extreme monsoonal track conditions.</p><p>Featuring deep tread grooves and a highly aggressive directional pattern, these tyres can disperse massive amounts of water per second at full racing speeds. The rubber compound is ultra-soft to generate mechanical grip on cold, fully flooded asphalt.</p>" }
-    ],
-    "flags": [
-        { key: "flag_red", tag: "FIA MARSHALING", title: "Red Flag // Session Suspended", htmlContent: "<p>The race or practice session is immediately halted due to serious accident tracking or hazardous weather environments.</p><p>Drivers must reduce speed immediately, overtaking is strictly prohibited, and all cars must return to the pit lane directly.</p>" },
-        { key: "flag_yellow", tag: "FIA MARSHALING", title: "Yellow Flag // Sector Danger", htmlContent: "<p>Indicates structural hazard parameters or tracking vectors on or adjacent to the racing line.</p><p>Single Yellow: Reduce speed and prepare to alter trajectory. Double Yellow: Massive track obstruction, reduce velocity significantly, be ready to come to a complete stop.</p>" }
-    ]
+const techData = {
+    engine: {
+        title: "1.6L V6 TURBO HYBRID",
+        subtitle: "⚡ 50/50 POWER SPLIT BETWEEN ICE AND ELECTRIC",
+        imgSrc: "../images/monopost/mono1.avif",
+        stats: [
+            "1.6L V6 Turbocharged",
+            "350 kW (470 hp)",
+            "15,000 RPM",
+            "Removed for 2026",
+            "3,000 MJ/h Energy Flow"
+        ],
+        overview: "<p>The 2026 Formula 1 power unit represents a massive leap toward sustainable motorsport. While retaining the high-revving 1.6-liter V6 internal combustion engine, the electrical output increases dramatically.</p><p>By eliminating the complex MGU-H and boosting the MGU-K to 350kW, electric power now provides roughly 50% of the overall horsepower output.</p>"
+    },
+    aero: {
+        title: "ACTIVE AERODYNAMICS",
+        subtitle: "💨 Z-MODE & X-MODE DYNAMIC WING CONTROL",
+        imgSrc: "../images/monopost/mono4.avif",
+        stats: [
+            "Active Front & Rear Wings",
+            "Cornering Downforce Mode",
+            "Low Drag Straight Mode",
+            "30% Drag Reduction",
+            "Fully Integrated Override"
+        ],
+        overview: "<p>Formula 1 is moving away from traditional DRS in favor of full Active Aerodynamics. Both front and rear wings adjust positions on the fly depending on where the car is on track.</p><p>Z-Mode deploys high downforce in corners for maximum cornering speeds, while X-Mode sheds drag on straights to boost top speed and facilitate overtaking.</p>"
+    },
+    chassis: {
+        title: "COMPACT CHASSIS & WEIGHT",
+        subtitle: "🏎️ 30KG LIGHTER AND SHORTER WHEELBASE",
+        imgSrc: "../images/monopost/mono2.avif",
+        stats: [
+            "768 kg (Minimum Mass)",
+            "3,400 mm Wheelbase",
+            "1,900 mm Car Width",
+            "18-inch Wheels",
+            "Carbon Monocoque"
+        ],
+        overview: "<p>Addressing the growing weight of modern race cars, 2026 regulations enforce 'nimble car' concepts with smaller dimensions and reduced total weight.</p><p>With a reduced wheelbase and narrower track width, cars become significantly more responsive in low-speed corners, encouraging closer wheel-to-wheel racing.</p>"
+    },
+    fuel: {
+        title: "100% SUSTAINABLE FUEL",
+        subtitle: "🌱 ZERO-NET CARBON EMISSION SYNTHETICS",
+        imgSrc: "../images/monopost/mono8.avif",
+        stats: [
+            "100% Advanced Synthetic",
+            "Net-Zero Carbon Footprint",
+            "Drop-in Fuel Spec",
+            "Non-Food Biomass Origin",
+            "Full Combustion Efficiency"
+        ],
+        overview: "<p>F1 power units will operate on 100% sustainable fuels derived from non-food municipal waste or carbon capture technologies.</p><p>This drop-in synthetic fuel allows maximum power output without producing additional atmospheric carbon, setting a benchmark for future automotive technology.</p>"
+    }
 };
 
-let currentCategory = "monopost";
-let currentSlideIndex = 0;
+function switchTech(key, btnElement) {
+    document.querySelectorAll('.tech-btn').forEach(btn => btn.classList.remove('active'));
+    btnElement.classList.add('active');
 
-const subTabs = document.querySelectorAll('.sub-tab');
-const interactiveStage = document.getElementById('interactiveStage');
-const textCategoryLayout = document.getElementById('textCategoryLayout');
-
-const mainShowcaseAsset = document.getElementById('mainShowcaseAsset');
-const canvasHotspotOverlay = document.getElementById('canvasHotspotOverlay');
-const liquidModal = document.getElementById('liquidModal');
-const modalTag = document.getElementById('modalTag');
-const modalTitle = document.getElementById('modalTitle');
-const modalDesc = document.getElementById('modalDesc');
-const closeLiquidModal = document.getElementById('closeLiquidModal');
-
-const layoutSideImage = document.getElementById('layoutSideImage');
-const textContentTag = document.getElementById('textContentTag');
-const textContentTitle = document.getElementById('textContentTitle');
-const textContentBody = document.getElementById('textContentBody');
-
-const hudAssetCounter = document.getElementById('hudAssetCounter');
-const hudAssetTitle = document.getElementById('hudAssetTitle');
-const btnPrevAsset = document.getElementById('btnPrevAsset');
-const btnNextAsset = document.getElementById('btnNextAsset');
-
-subTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        subTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        
-        currentCategory = tab.getAttribute('data-category');
-        currentSlideIndex = 0;
-        
-        renderActiveItem();
-    });
-});
-
-function renderActiveItem() {
-    const activeArray = techzoneContent[currentCategory];
-    const item = activeArray[currentSlideIndex];
+    const item = techData[key];
     if (!item) return;
 
-    hudAssetTitle.textContent = item.title;
-    hudAssetCounter.textContent = `${String(currentSlideIndex + 1).padStart(2, '0')} // ${String(activeArray.length).padStart(2, '0')}`;
+    document.getElementById('tech-hero-title').textContent = item.title;
+    document.getElementById('tech-hero-subtitle').textContent = item.subtitle;
 
-    document.querySelectorAll('.tech-glow-node').forEach(node => node.remove());
-    dismissLiquidModal();
-
-    if (currentCategory === "monopost") {
-        textCategoryLayout.style.display = "none";
-        interactiveStage.style.display = "block";
-
-        mainShowcaseAsset.style.opacity = '0';
-        mainShowcaseAsset.src = `/images/monopost/${item.key}.avif`;
-        mainShowcaseAsset.onload = () => {
-            mainShowcaseAsset.style.opacity = '1';
-            drawHotspots(item.hotspots, item.tag);
-        };
-    } else {
-        interactiveStage.style.display = "none";
-        textCategoryLayout.style.display = "flex";
-
-        layoutSideImage.src = `/images/tech/${item.key}.jpg`;
-        textContentTag.textContent = item.tag;
-        textContentTitle.textContent = item.title;
-        textContentBody.innerHTML = item.htmlContent;
+    // Dynamická změna obrázku v banneru
+    const imgEl = document.getElementById('tech-hero-img');
+    if (imgEl) {
+        imgEl.src = item.imgSrc;
     }
+
+    document.getElementById('tech-stat-1').textContent = item.stats[0];
+    document.getElementById('tech-stat-2').textContent = item.stats[1];
+    document.getElementById('tech-stat-3').textContent = item.stats[2];
+    document.getElementById('tech-stat-4').textContent = item.stats[3];
+    document.getElementById('tech-stat-5').textContent = item.stats[4];
+
+    document.getElementById('tech-overview-text').innerHTML = item.overview;
 }
-
-function drawHotspots(hotspots, sectionTag) {
-    if (!hotspots) return;
-
-    hotspots.forEach(spot => {
-        const dot = document.createElement('div');
-        dot.classList.add('tech-glow-node');
-        dot.style.left = `${spot.x}%`;
-        dot.style.top = `${spot.y}%`;
-        
-        dot.addEventListener('click', (e) => {
-            e.stopPropagation();
-            
-            document.querySelectorAll('.tech-glow-node').forEach(n => n.classList.remove('active'));
-            dot.classList.add('active');
-            
-            mainShowcaseAsset.style.opacity = '0.35';
-
-            modalTag.textContent = sectionTag;
-            modalTitle.textContent = spot.label;
-            modalDesc.textContent = spot.text;
-
-            liquidModal.style.left = `${spot.x}%`;
-            liquidModal.style.top = `${spot.y}%`;
-            liquidModal.classList.add('visible');
-        });
-        
-        canvasHotspotOverlay.appendChild(dot);
-    });
-}
-
-function dismissLiquidModal() {
-    liquidModal.classList.remove('visible');
-    mainShowcaseAsset.style.opacity = '1';
-    document.querySelectorAll('.tech-glow-node').forEach(n => n.classList.remove('active'));
-}
-
-btnPrevAsset.addEventListener('click', () => {
-    const total = techzoneContent[currentCategory].length;
-    currentSlideIndex = (currentSlideIndex === 0) ? total - 1 : currentSlideIndex - 1;
-    renderActiveItem();
-});
-
-btnNextAsset.addEventListener('click', () => {
-    const total = techzoneContent[currentCategory].length;
-    currentSlideIndex = (currentSlideIndex === total - 1) ? 0 : currentSlideIndex + 1;
-    renderActiveItem();
-});
-
-closeLiquidModal.addEventListener('click', (e) => {
-    e.stopPropagation();
-    dismissLiquidModal();
-});
-
-document.addEventListener('click', (e) => {
-    if (!liquidModal.contains(e.target)) {
-        dismissLiquidModal();
-    }
-});
-
-window.addEventListener('DOMContentLoaded', () => {
-    renderActiveItem();
-});

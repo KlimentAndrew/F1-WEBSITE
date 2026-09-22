@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -33,319 +32,447 @@ body {
     line-height: 1.6;
 }
 
-
-.techzone-sub-nav {
+/* HLAVIČKA / NAVBAR */
+.main-header {
+    background-color: #030303;
     display: flex;
-    justify-content: center;
-    gap: 40px;
-    background: #000000;
-    padding: 20px 0 10px 0;
-    border-bottom: 1px solid #101015;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 4px solid #e10600;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.sub-tab {
-    color: #475569;
-    font-size: 12px;
+.logo {
+    font-size: 26px;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.logo img {
+    height: 3vh;
+    margin-right: 10px;
+}
+
+.navbar a {
+    color: #bababa;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 17px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    color: #e10600;
+}
+
+/* HLAVNÍ KONTEJNER STRÁNKY */
+.tech-page-container {
+    max-width: 1400px;
+    width: 92%;
+    margin: 40px auto;
+    flex: 1;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+/* TLAČÍTKA A PREPINAC KATEGORII */
+.tech-tab-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.tech-btn {
+    background-color: #0d0d12;
+    border: 1px solid #22222f;
+    color: #888896;
+    padding: 12px 24px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
     cursor: pointer;
-    padding-bottom: 8px;
-    position: relative;
-    transition: color 0.25s ease;
-}
-
-.sub-tab:hover, 
-.sub-tab.active { 
-    color: #ffffff; 
-}
-
-.sub-tab.active::after {
-    content: ''; 
-    position: absolute; 
-    bottom: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 2px; 
-    background-color: #e10600;
-}
-
-
-.immersive-theatre-viewport {
-    background-color: #000000;
-    height: calc(100vh - 70px - 60px - 53px);
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.fullscreen-stage-core {
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-}
-
-.fullscreen-stage-core img {
-    width: 100%; 
-    height: 100%; 
-    display: block; 
-    object-fit: cover; 
-    object-position: center center; 
-    user-select: none; 
-    transition: opacity 0.25s ease;
-}
-
-#canvasHotspotOverlay { 
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    z-index: 10; 
-}
-
-.tech-glow-node {
-    position: absolute; 
-    width: 25px; 
-    height: 25px; 
-    background: rgba(255, 255, 255, 0.4); 
-    border: 2px solid #ffffff; 
-    border-radius: 50%; 
-    cursor: pointer; 
-    transform: translate(-50%, -50%); 
-    z-index: 20; 
+    border-radius: 4px;
     transition: all 0.2s ease;
 }
 
-.tech-glow-node::before {
-    content: ''; 
-    position: absolute; 
-    top: -5px; 
-    left: -5px; 
-    right: -5px; 
-    bottom: -5px; 
-    border: 1px solid #e10600; 
-    border-radius: 50%; 
-    animation: nodePulse 2s infinite linear;
+.tech-btn:hover, .tech-btn.active {
+    background-color: #e10600;
+    border-color: #e10600;
+    color: #ffffff;
 }
 
-.tech-glow-node:hover, 
-.tech-glow-node.active { 
-    background: #ffffff; 
-    border-color: #ffffff; 
-    box-shadow: 0 0 20px #ffffff, 0 0 35px #e10600; 
-}
-
-@keyframes nodePulse { 
-    0% { transform: scale(0.9); opacity: 1; } 
-    100% { transform: scale(1.3); opacity: 0; } 
-}
-
-.liquid-glass-modal {
-    position: absolute; 
-    width: 390px; 
-    background: rgba(8, 8, 12, 0.75); 
-    backdrop-filter: blur(25px) saturate(150%); 
-    -webkit-backdrop-filter: blur(25px) saturate(150%); 
-    border: 1px solid rgba(255, 255, 255, 0.08); 
-    border-top: 2px solid rgba(255, 255, 255, 0.25); 
-    padding: 20px; 
-    border-radius: 9px; 
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9); 
-    z-index: 100; 
-    opacity: 0; 
-    transform: translate(-50%, -115%) scale(0.95); 
-    pointer-events: none; 
-    transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.liquid-glass-modal.visible { 
-    opacity: 1; 
-    transform: translate(-50%, -120%) scale(1); 
-    pointer-events: auto; 
-}
-
-.liquid-close-btn { 
-    position: absolute; 
-    top: 12px; 
-    right: 14px; 
-    background: transparent; 
-    border: none; 
-    color: #64748b; 
-    font-size: 22px; 
-    cursor: pointer; 
-    line-height: 1; 
-    transition: color 0.2s; 
-}
-
-.liquid-close-btn:hover { 
-    color: #ffffff; 
-}
-
-.liquid-tag { 
-    color: #e10600; 
-    font-size: 9px; 
-    font-weight: 700; 
-    letter-spacing: 2px; 
-    display: block; 
-    margin-bottom: 4px; 
-}
-
-.liquid-title {  
-    color: #ffffff; 
-    font-size: 16px; 
-    margin: 0 0 8px 0; 
-    font-weight: 600; 
-}
-
-.liquid-desc { 
-    color: #cbd5e1; 
-    font-size: 13px; 
-    line-height: 1.5; 
-    margin: 0; 
-}
-
-
-.text-category-layout {
+/* HERO BANNER - PŘIBLÍŽENÝ OBRÁZEK S BEZŠVOVÝM PŘECHODEM */
+.tech-profile-banner {
+    background: #0d0d12;
+    border: 1px solid #22222f;
+    border-radius: 12px;
+    padding: 0;
+    height: 360px;
     display: flex;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0; 
-    left: 0;
-    z-index: 5;
-}
-
-.layout-visual-side {
-    flex: 1;
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    background-color: #050508;
-    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 
-.layout-visual-side img {
-    max-width: 100%;
-    max-height: 80vh;
-    object-fit: contain;
+.tech-profile-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background-color: #e10600;
+    z-index: 10;
 }
 
-.layout-text-side {
-    flex: 1;
-    background-color: #000000;
-    padding: 60px 80px 120px 60px; 
-    overflow-y: auto;
+.tech-title-area {
+    z-index: 3;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-left: 1px solid #101015;
+    width: 45%;
+    padding-left: 50px;
 }
 
-.content-tag { 
-    color: #e10600; 
-    font-size: 11px; 
-    font-weight: 700; 
-    letter-spacing: 3px; 
-    margin-bottom: 10px; 
-    display: block; 
+.tech-title-area h1 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 12px;
 }
 
-.content-title {  
-    color: #ffffff; 
-    font-size: 32px; 
-    font-weight: 700; 
-    margin: 0 0 15px 0; 
+.tech-meta-info {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.content-divider { 
-    border: 0; 
-    height: 1px; 
-    background: #202025; 
-    margin-bottom: 25px; 
+/* PRAVÁ POLOVINA S FOTKOU - ZOOM + DVOJITÝ GRADIENT */
+/* KONTAJNER PRE OBRÁZOK */
+.hero-image-box {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 58%;
+    height: 100%;
+    z-index: 2;
+    overflow: hidden;
+    /* Postupný prechod do čiernej zľava */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 30%);
 }
 
-.content-body-space {
-    color: #94a3b8;
-    font-size: 15px;
-    line-height: 1.7;
-}
-
-.content-body-space p { 
-    margin-bottom: 15px; 
-}
-
-
-.hud-floating-controller {
-    position: absolute; 
-    bottom: 30px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    display: flex; 
-    align-items: center; 
-    gap: 40px; 
-    background: rgba(4, 4, 8, 0.6); 
-    backdrop-filter: blur(15px); 
-    -webkit-backdrop-filter: blur(15px); 
-    border: 1px solid rgba(255, 255, 255, 0.02); 
-    padding: 10px 40px; 
-    border-radius: 9px; 
-    z-index: 50; 
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-}
-
-.hud-nav-arrow { 
-    background: none; 
-    border: none; 
-    color: #475569; 
-    font-size: 24px; 
-    cursor: pointer; 
-    transition: color 0.2s; 
-}
-
-.hud-nav-arrow:hover { 
-    color: #e10600; 
-}
-
-.hud-center-identity { 
-    text-align: center; 
-    min-width: 250px; 
-}
-
-#hudAssetCounter { 
-    color: #e10600; 
-    font-size: 10px; 
-    font-weight: 700; 
-    letter-spacing: 3px; 
-    display: block; 
-    margin-bottom: 1px; 
-}
-
-#hudAssetTitle { 
-    color: #ffffff; 
-    font-size: 14px; 
-    font-weight: 600; 
-    margin: 0;  
-    letter-spacing: 0.5px; 
-}
-
-
-@media (max-width: 992px) {
-    .text-category-layout { 
-        flex-direction: column; 
-        overflow-y: auto; 
-    }
+.hero-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     
-    .layout-visual-side { 
-        height: 40vh; 
-        flex: none; 
-    }
+    /* PŘIBLÍŽENÍ (ZOOM) */
+    transform: scale(1.6);
     
-    .layout-text-side { 
-        padding: 40px 30px 100px 30px; 
-        flex: none; 
-        border-left: none; 
-        border-top: 1px solid #101015; 
+    
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* GRID STRUKTURY A KARTY */
+.tech-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.tech-bio-full-width {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.tech-card-box {
+    background-color: #0d0d12;
+    border: 1px solid #22222f;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.tech-card-box h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #22222f;
+}
+
+/* TABULKA SPECIFIKACÍ */
+.tech-stats-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tech-stats-table td {
+    padding: 12px 0;
+    border-bottom: 1px solid #181824;
+    font-size: 0.95rem;
+}
+
+.tech-stats-table tr:last-child td {
+    border-bottom: none;
+}
+
+.tech-stats-table td:first-child {
+    color: #888896;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.tech-stats-table td:last-child {
+    text-align: right;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.tech-bio-text {
+    color: #b0b0c0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.tech-bio-text p {
+    margin-bottom: 15px;
+}
+
+.tech-bio-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* SEKCE PNEUMATIK - ROZVRŽENÍ KARET */
+.tech-tyre-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tech-tyre-card {
+    background-color: #111116;
+    border: 1px solid #22222f;
+    padding: 20px;
+    border-radius: 8px;
+    border-bottom: 4px solid #484848;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tech-tyre-card:hover {
+    transform: translateY(-4px);
+}
+
+/* BAREVNÉ PRUHY PRO JEDNOTLIVÉ SMĚSI */
+.tech-tyre-card.soft { border-bottom-color: #e10600; }
+.tech-tyre-card.medium { border-bottom-color: #ffd100; }
+.tech-tyre-card.hard { border-bottom-color: #ffffff; }
+.tech-tyre-card.inter { border-bottom-color: #00d26a; }
+.tech-tyre-card.wet { border-bottom-color: #0066ff; }
+
+.tech-tyre-card h4 {
+    font-size: 0.95rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.tech-tyre-card p {
+    font-size: 0.85rem;
+    color: #b0b0c0;
+    line-height: 1.5;
+}
+
+.tech-tyre-card p strong {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 4px;
+}
+
+@media (max-width: 900px) {
+    .tech-tyre-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tech-rules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.tech-card {
+    background-color: #111116;
+    border: 1px solid #22222f;
+    border-radius: 6px;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-4px);
+    border-color: #e10600;
+}
+
+.tech-card h3 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 10px;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.tech-card p {
+    font-size: 0.85rem;
+    color: #888896;
+    line-height: 1.5;
+}
+
+/* SEKCE ZÁVODNÍCH VLAJEK */
+.tech-flags-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.tech-flag-card {
+    background-color: #111116;
+    border: 1px solid #22222f;
+    border-radius: 8px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tech-flag-card:hover {
+    transform: translateY(-3px);
+    border-color: #e10600;
+}
+
+/* VIZUÁLNÍ VLAJKY */
+.flag-color-indicator {
+    width: 45px;
+    height: 32px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* BAREVNÉ VARIANTY VLAJEK */
+.green .flag-color-indicator { background-color: #00d26a; }
+.yellow .flag-color-indicator { background-color: #ffcc00; }
+.red .flag-color-indicator { background-color: #ff0033; }
+.blue .flag-color-indicator { background-color: #0066ff; }
+
+/* ŽLUTO-ČERVENÁ PRUHOVANÁ */
+.yellow-red .flag-color-indicator {
+    background: repeating-linear-gradient(
+        90deg,
+        #ffcc00,
+        #ffcc00 8px,
+        #ff0033 8px,
+        #ff0033 16px
+    );
+}
+
+.checkered .flag-color-indicator {
+    background-color: #ffffff;
+    background-image: 
+        linear-gradient(45deg, #000 25%, transparent 25%), 
+        linear-gradient(-45deg, #000 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #000 75%), 
+        linear-gradient(-45deg, transparent 75%, #000 75%);
+    background-size: 12px 12px;
+    background-position: 0 0, 0 6px, 6px -6px, -6px 0px;
+}
+
+.flag-details h4 {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.flag-details p {
+    font-size: 0.85rem;
+    color: #888896;
+    line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+    .tech-flags-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* PATIČKA */
+.main-footer {
+    background-color: #111118;
+    padding: 20px 40px;
+    text-align: center;
+    border-top: 1px solid #22222f;
+    color: #666677;
+    font-size: 0.9rem;
+    margin-top: 40px;
+}
+
+/* RESPONSIVITA PRO MOBILY A TABLETY */
+@media (max-width: 900px) {
+    .tech-content-grid, .tech-tyre-grid, .tech-rules-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-profile-banner {
+        height: auto;
+        min-height: 320px;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .tech-title-area {
+        width: 100%;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    .hero-image-box {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.25;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+    .hero-image-box img {
+        transform: scale(1.1);
     }
 }

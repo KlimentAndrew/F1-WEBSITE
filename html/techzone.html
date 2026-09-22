@@ -3,76 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F1 - TECH ZONE</title>
+    <title>F1 - Technical Zone</title>
     <link rel="icon" type="image/png" href="../images/logo/f1-logo.png">
+    <link rel="stylesheet" href="../styles/techzone.css">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/standings.css"> 
-    <link rel="stylesheet" href="/styles/techzone.css">
 </head>
 <body>
 
     <header class="main-header">
-        <div class="logo"> <img src="/images/logo/f1-logo.png" alt="F1 Logo">F1 - HOME OF MOTORSPORT</div>
+        <div class="logo"><img src="../images/logo/f1-logo.png" alt="F1 Logo">F1 - HOME OF MOTORSPORT</div>
         <nav class="navbar">
-            <a href="../">HOME</a>
+            <a href="../index.html">HOME</a>
             <a href="results.html">RESULTS</a>
             <a href="standings.html">STANDINGS</a>
-            <a href="/html/drivers.html">DRIVERS</a>
-            <a href="/html/teams.html">TEAMS</a>
+            <a href="drivers.html">DRIVERS</a>
+            <a href="teams.html">TEAMS</a>
             <a href="calendar.html">CALENDAR</a>
-            <a href="telemetry.html" class="active">TECH ZONE</a>
+            <a href="techzone.html" class="active">TECH ZONE</a>
             <a href="archive.html">ARCHIVE</a>
         </nav>
     </header>
 
-    <div class="techzone-sub-nav">
-        <span class="sub-tab active" data-category="monopost">MONOPOST ANALYSIS</span>
-        <span class="sub-tab" data-category="tires">TYRE SPECIFICATIONS</span>
-        <span class="sub-tab" data-category="flags">MARSHAL SIGNALS</span>
-    </div>
-
-    <main class="immersive-theatre-viewport">
+    <main class="tech-page-container">
         
-        <div class="fullscreen-stage-core" id="interactiveStage">
-            <img src="/images/monopost/mono1.avif" id="mainShowcaseAsset" alt="F1 Technical Blueprint">
-            <div id="canvasHotspotOverlay">
-                <div class="liquid-glass-modal" id="liquidModal">
-                    <button class="liquid-close-btn" id="closeLiquidModal" aria-label="Close">×</button>
-                    <span class="liquid-tag" id="modalTag">FIA REGULATION</span>
-                    <h2 class="liquid-title" id="modalTitle">Component Detail</h2>
-                    <p class="liquid-desc" id="modalDesc"></p>
+        <h2 class="section-title">🏁 2026 TECHNICAL REGULATIONS & INNOVATIONS</h2>
+
+        <!-- PREPINAC KATEGORII -->
+        <div class="tech-tab-buttons">
+            <button class="tech-btn active" onclick="switchTech('engine', this)">⚡ POWER UNIT</button>
+            <button class="tech-btn" onclick="switchTech('aero', this)">💨 AERODYNAMICS</button>
+            <button class="tech-btn" onclick="switchTech('chassis', this)">🏎️ CHASSIS & WEIGHT</button>
+            <button class="tech-btn" onclick="switchTech('fuel', this)">🌱 SUSTAINABLE FUEL</button>
+        </div>
+
+        <!-- HERO BANNER S PLYNULÝM PŘECHODEM DO FOTKY -->
+        <div class="tech-profile-banner">
+            <div class="tech-title-area">
+                <h1 id="tech-hero-title">1.6L V6 TURBO HYBRID</h1>
+                <div id="tech-hero-subtitle" class="tech-meta-info">⚡ 50/50 POWER SPLIT BETWEEN ICE AND ELECTRIC</div>
+            </div>
+            
+            <div class="hero-image-box">
+                <img id="tech-hero-img" src="../images/monopost/mono1.avif" alt="Tech Visual" >
+            </div>
+        </div>
+
+        <!-- HORNÍ MŘÍŽKA: PARAMETRY A OVERVIEW -->
+        <div class="tech-content-grid">
+            
+            <div class="tech-card-box">
+                <h3>📊 Technical Parameters</h3>
+                <table class="tech-stats-table">
+                    <tr>
+                        <td>Engine Configuration</td>
+                        <td id="tech-stat-1">1.6L V6 Turbocharged</td>
+                    </tr>
+                    <tr>
+                        <td>Electric Power (MGU-K)</td>
+                        <td id="tech-stat-2">350 kW (470 hp)</td>
+                    </tr>
+                    <tr>
+                        <td>RPM Limit</td>
+                        <td id="tech-stat-3">15,000 RPM</td>
+                    </tr>
+                    <tr>
+                        <td>MGU-H Component</td>
+                        <td id="tech-stat-4">Removed for 2026</td>
+                    </tr>
+                    <tr>
+                        <td>Max Fuel Flow Rate</td>
+                        <td id="tech-stat-5">3,000 MJ/h Energy Flow</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tech-card-box">
+                <h3>⚙️ Overview & Working Principle</h3>
+                <div id="tech-overview-text" class="tech-bio-text">
+                    <p>The 2026 Formula 1 power unit represents a massive leap toward sustainable motorsport. While retaining the high-revving 1.6-liter V6 internal combustion engine, the electrical output increases dramatically.</p>
+                    <p>By eliminating the complex MGU-H and boosting the MGU-K to 350kW, electric power now provides roughly 50% of the overall horsepower output.</p>
+                </div>
+            </div>
+
+        </div>
+
+                <!-- SEKCE PNEUMATIK -->
+        <div class="tech-card-box tech-bio-full-width">
+            <h3>🛞 Pirelli Tyre Compounds & Strategy 🏁</h3>
+            <div class="tech-tyre-grid">
+                
+                <!-- SUCHÉ SMĚSI (DRY TYRES) -->
+                <div class="tech-tyre-card soft">
+                    <h4>🔴 SOFT COMPOUND (RED)</h4>
+                    <p><strong>Nejrychlejší & Nejměkčí:</strong> Maximální přilnavost a rychlost na jedno kolo. Nejvyšší opotřebení, klíčová pro kvalifikaci.</p>
+                </div>
+
+                <div class="tech-tyre-card medium">
+                    <h4>🟡 MEDIUM COMPOUND (YELLOW)</h4>
+                    <p><strong>Univerzální kompromis:</strong> Skvělý poměr mezi rychlostí v zatáčkách a životností. Hlavní volba pro většinu strategií v závodě.</p>
+                </div>
+
+                <div class="tech-tyre-card hard">
+                    <h4>⚪ HARD COMPOUND (WHITE)</h4>
+                    <p><strong>Nejodolnější & Nejtvrdší:</strong> Nejnižší přilnavost, ale maximální životnost. Ideální pro dlouhé úseky závodu a vysoké teploty trati.</p>
+                </div>
+
+                <!-- MOKRÉ SMĚSI (WET TYRES) -->
+                <div class="tech-tyre-card inter">
+                    <h4>🟢 INTERMEDIATE (GREEN)</h4>
+                    <p><strong>Přechodná do deště:</strong> Pro mokrou trať bez stojaté vody nebo schnoucí povrch. Odvádí přibližně 30 litrů vody za sekundu při 300 km/h.</p>
+                </div>
+
+                <div class="tech-tyre-card wet">
+                    <h4>🔵 FULL WET (BLUE)</h4>
+                    <p><strong>Extrémní déšť:</strong> Určena pro silný průtrž mračen a stojatou vodu na trati. Odvádí až 85 litrů vody za sekundu při 300 km/h.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SEKCE PRAVIDEL A INOVACÍ -->
+        <div class="tech-card-box tech-bio-full-width">
+            <h3>🛠️ Key Technical Changes & FIA Rules</h3>
+            <div class="tech-rules-grid">
+                <div class="tech-card">
+                    <h3>💨 ACTIVE AERODYNAMICS</h3>
+                    <p>Replacing DRS, active front and rear wings switch between Z-Mode (high cornering downforce) and X-Mode (low drag on straights).</p>
+                </div>
+                <div class="tech-card">
+                    <h3>⚖️ REDUCED WEIGHT</h3>
+                    <p>Minimum car mass is reduced by 30kg down to 768kg, creating more agile cars with better braking and acceleration response.</p>
+                </div>
+                <div class="tech-card">
+                    <h3>📏 NARROWER DIMENSIONS</h3>
+                    <p>Car width shrinks from 2000mm to 1900mm, with the maximum wheelbase reduced to 3400mm for wheel-to-wheel racing.</p>
                 </div>
             </div>
         </div>
 
-        <div class="text-category-layout" id="textCategoryLayout" style="display: none;">
-            <div class="layout-visual-side">
-                <img src="" id="layoutSideImage" alt="Category Visual">
-            </div>
-            <div class="layout-text-side">
-                <span class="content-tag" id="textContentTag">PIRELLI MOTORSPORT</span>
-                <h1 class="content-title" id="textContentTitle">Tyre Title</h1>
-                <hr class="content-divider">
-                <div class="content-body-space" id="textContentBody">
+                <!-- SEKCE ZÁVODNÍCH VLAJEK (RACE FLAGS) -->
+        <div class="tech-card-box tech-bio-full-width">
+            <h3>🏁 F1 Race Flags & Signals</h3>
+            <div class="tech-flags-grid">
+                
+                <div class="tech-flag-card green">
+                    <div class="flag-color-indicator"></div>
+                    <div class="flag-details">
+                        <h4>GREEN FLAG (Zelená)</h4>
+                        <p>Trať je volná. Nebezpečí pominulo a jezdci mohou opět závodit a předjíždět na plný plyn.</p>
                     </div>
-            </div>
-        </div>
+                </div>
 
-        <div class="hud-floating-controller">
-            <button class="hud-nav-arrow" id="btnPrevAsset">←</button>
-            <div class="hud-center-identity">
-                <span id="hudAssetCounter">01 // 08</span>
-                <h1 id="hudAssetTitle">Front Wing Morphology</h1>
-            </div>
-            <button class="hud-nav-arrow" id="btnNextAsset">→</button>
-        </div>
+                <div class="tech-flag-card yellow">
+                    <div class="flag-color-indicator"></div>
+                    <div class="flag-details">
+                        <h4>YELLOW FLAG (Žlutá)</h4>
+                        <p>Nebezpečí na trati. Zpomalte, buďte připraveni změnit směr. Zákaz předjíždění (může být i dvojitá žlutá).</p>
+                    </div>
+                </div>
+
+                <div class="tech-flag-card red">
+                    <div class="flag-color-indicator"></div>
+                    <div class="flag-details">
+                        <h4>RED FLAG (Červená)</h4>
+                        <p>Trénink, kvalifikace nebo závod je přerušen. Velké nebezpečí nebo špatné počasí. Všichni musí do boxů.</p>
+                    </div>
+                </div>
+
+                <div class="tech-flag-card blue">
+                    <div class="flag-color-indicator"></div>
+                    <div class="flag-details">
+                        <h4>BLUE FLAG (Modrá)</h4>
+                        <p>Upozornění pro pomalejšího jezdce, že se k němu blíží vůz o kolo napřed. Musí ho co nejdříve pustit.</p>
+                    </div>
+                </div>
+
+                <div class="tech-flag-card yellow-red">
+                    <div class="flag-color-indicator"></div>
+                    <div class="flag-details">
+                        <h4>YELLOW-RED STRIPED (Žluto-červená)</h4>
+                        <p>Kluzký povrch trati. Upozorňuje na olej, vodu nebo úlomky z vozů na vozovce.</p>
+                    </div>
+                </div>
+
+                <div class="tech-flag-card checkered">
+                    <div class="flag-color-indicator"></div>
+                    <div class="flag-details">
+                        <h4>CHECKERED FLAG (Šachovnicová)</h4>
+                        <p>Konec tréninku, kvalifikace nebo samotného závodu. Zobrazuje se vítězi při průjezdu cílem.</p>
+                    </div>
+                </div>
+
+    </div>
+</div>
 
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2026 F1 - HOME OF MOTORSPORT </p>
+        <p>&copy; 2026 F1 - HOME OF MOTORSPORT 🏁</p>
     </footer>
 
-    <script src="/script/techzone.js"></script>
+    <script src="../script/techzone.js"></script>
 </body>
 </html>
