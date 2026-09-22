@@ -2,7 +2,7 @@ const techData = {
     engine: {
         title: "1.6L V6 TURBO HYBRID",
         subtitle: "⚡ 50/50 POWER SPLIT BETWEEN ICE AND ELECTRIC",
-        imgSrc: "../images/monopost/mono1.avif",
+        imgSrc: "../images/monopost/mono5.avif",
         stats: [
             "1.6L V6 Turbocharged",
             "350 kW (470 hp)",
