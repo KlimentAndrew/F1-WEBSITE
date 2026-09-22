@@ -74,7 +74,7 @@ body {
 
 /* HLAVNÍ KONTEJNER STRÁNKY */
 .tech-page-container {
-    max-width: 1400px;
+    max-width: 85%;
     width: 92%;
     margin: 40px auto;
     flex: 1;
@@ -118,7 +118,7 @@ body {
 .tech-profile-banner {
     background: #0d0d12;
     border: 1px solid #22222f;
-    border-radius: 12px;
+    border-radius: 6px;
     padding: 0;
     height: 360px;
     display: flex;
@@ -187,7 +187,6 @@ body {
     object-fit: cover;
     object-position: center;
     
-    /* PŘIBLÍŽENÍ (ZOOM) */
     transform: scale(1.6);
     
     
@@ -210,7 +209,7 @@ body {
 .tech-card-box {
     background-color: #0d0d12;
     border: 1px solid #22222f;
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 30px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
@@ -268,10 +267,9 @@ body {
     margin-bottom: 0;
 }
 
-/* SEKCE PNEUMATIK - ROZVRŽENÍ KARET */
 .tech-tyre-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
 }
 
@@ -357,14 +355,14 @@ body {
 /* SEKCE ZÁVODNÍCH VLAJEK */
 .tech-flags-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
 .tech-flag-card {
     background-color: #111116;
     border: 1px solid #22222f;
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 18px;
     display: flex;
     align-items: center;
