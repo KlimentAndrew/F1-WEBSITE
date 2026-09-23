@@ -81,13 +81,12 @@ body {
 }
 
 .section-title {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 50px;
+    font-weight: 800;
     margin-bottom: 25px;
     text-transform: uppercase;
 }
 
-/* TLAČÍTKA A PREPINAC KATEGORII */
 .tech-tab-buttons {
     display: flex;
     gap: 15px;
@@ -114,7 +113,6 @@ body {
     color: #ffffff;
 }
 
-/* HERO BANNER - PŘIBLÍŽENÝ OBRÁZEK S BEZŠVOVÝM PŘECHODEM */
 .tech-profile-banner {
     background: #0d0d12;
     border: 1px solid #22222f;
@@ -166,8 +164,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* PRAVÁ POLOVINA S FOTKOU - ZOOM + DVOJITÝ GRADIENT */
-/* KONTAJNER PRE OBRÁZOK */
 .hero-image-box {
     position: absolute;
     right: 0;
@@ -193,7 +189,6 @@ body {
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* GRID STRUKTURY A KARTY */
 .tech-content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -224,7 +219,6 @@ body {
     border-bottom: 1px solid #22222f;
 }
 
-/* TABULKA SPECIFIKACÍ */
 .tech-stats-table {
     width: 100%;
     border-collapse: collapse;
@@ -286,7 +280,6 @@ body {
     transform: translateY(-4px);
 }
 
-/* BAREVNÉ PRUHY PRO JEDNOTLIVÉ SMĚSI */
 .tech-tyre-card.soft { border-bottom-color: #e10600; }
 .tech-tyre-card.medium { border-bottom-color: #ffd100; }
 .tech-tyre-card.hard { border-bottom-color: #ffffff; }
@@ -294,13 +287,13 @@ body {
 .tech-tyre-card.wet { border-bottom-color: #0066ff; }
 
 .tech-tyre-card h4 {
-    font-size: 0.95rem;
+    font-size: 15px;
     color: #ffffff;
     margin-bottom: 10px;
 }
 
 .tech-tyre-card p {
-    font-size: 0.85rem;
+    font-size: 14px;
     color: #b0b0c0;
     line-height: 1.5;
 }
@@ -327,7 +320,7 @@ body {
     background-color: #111116;
     border: 1px solid #22222f;
     border-radius: 6px;
-    padding: 25px;
+    padding:25px;
     position: relative;
     overflow: hidden;
     transition: transform 0.2s ease, border-color 0.2s ease;
@@ -352,7 +345,6 @@ body {
     line-height: 1.5;
 }
 
-/* SEKCE ZÁVODNÍCH VLAJEK */
 .tech-flags-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -375,7 +367,6 @@ body {
     border-color: #e10600;
 }
 
-/* VIZUÁLNÍ VLAJKY */
 .flag-color-indicator {
     width: 45px;
     height: 32px;
@@ -385,13 +376,11 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* BAREVNÉ VARIANTY VLAJEK */
 .green .flag-color-indicator { background-color: #00d26a; }
 .yellow .flag-color-indicator { background-color: #ffcc00; }
 .red .flag-color-indicator { background-color: #ff0033; }
 .blue .flag-color-indicator { background-color: #0066ff; }
 
-/* ŽLUTO-ČERVENÁ PRUHOVANÁ */
 .yellow-red .flag-color-indicator {
     background: repeating-linear-gradient(
         90deg,
@@ -414,13 +403,13 @@ body {
 }
 
 .flag-details h4 {
-    font-size: 1rem;
+    font-size: 20px;
     color: #ffffff;
     margin-bottom: 4px;
 }
 
 .flag-details p {
-    font-size: 0.85rem;
+    font-size: 14px;
     color: #888896;
     line-height: 1.4;
 }
@@ -432,7 +421,6 @@ body {
 }
 
 
-/* PATIČKA */
 .main-footer {
     background-color: #111118;
     padding: 20px 40px;
