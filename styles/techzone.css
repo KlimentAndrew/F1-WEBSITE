@@ -191,7 +191,7 @@ body {
 
 .tech-content-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 3fr;
     gap: 30px;
     margin-top: 30px;
 }
@@ -227,7 +227,7 @@ body {
 .tech-stats-table td {
     padding: 12px 0;
     border-bottom: 1px solid #181824;
-    font-size: 0.95rem;
+    font-size: 25px;
 }
 
 .tech-stats-table tr:last-child td {
@@ -238,7 +238,7 @@ body {
     color: #888896;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 15px;
 }
 
 .tech-stats-table td:last-child {
@@ -249,7 +249,7 @@ body {
 
 .tech-bio-text {
     color: #b0b0c0;
-    font-size: 0.95rem;
+    font-size: 20px;
     line-height: 1.8;
 }
 

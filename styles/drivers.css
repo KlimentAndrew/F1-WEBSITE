@@ -30,6 +30,7 @@ body {
     background-color: #030303;
     color: #ffffff;
     line-height: 1.6;
+    display: block;
 }
 
 .main-header {
@@ -72,7 +73,7 @@ body {
 }
 
 .drivers-page-container {
-    max-width: 1400px;
+    max-width: 90%;
     width: 92%;
     margin: 40px auto;
     flex: 1;
@@ -134,7 +135,6 @@ body {
     font-style: italic;
 }
 
-/* Tlačítko zpět */
 .back-to-grid-btn {
     background: none;
     border: none;
@@ -311,13 +311,11 @@ body {
 }
 
 .main-footer {
-    background-color: #111118;
-    padding: 20px 40px;
+    background-color: #09090d;
     text-align: center;
-    border-top: 1px solid #22222f;
-    color: #666677;
-    font-size: 0.9rem;
-    margin-top: auto;
+    padding: 20px;
+    color: #666666;
+    font-size: 13px;
 }
 
 @media (max-width: 900px) {

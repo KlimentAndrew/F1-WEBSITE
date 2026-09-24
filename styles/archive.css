@@ -1,0 +1,313 @@
+/* ==========================================================================
+   FONTY A DŮLEŽITÉ ZÁKLADY
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Formula1';
+    src: url('../formula-font/Formula1-Regular_web_0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Formula1';
+    src: url('../formula-font/Formula1-Bold_web_0.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Formula1-Wide';
+    src: url('../formula-font/Formula1-Wide_web_0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Formula1', sans-serif;    
+    background-color: #030303;
+    color: #ffffff;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   NAVIGACE (PŘESNĚ PODLE TVÉHO HLAVNÍHO CSS)
+   ========================================================================== */
+.main-header {
+    background-color: #030303;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 4px solid #e10600;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img {
+    height: 3vh;
+    margin-right: 10px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar a {
+    color: #bababa;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    font-size: 17px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    color: #e10600;
+}
+
+/* ==========================================================================
+   ARCHIV HERO & CONTROLS
+   ========================================================================== */
+.archive-hero {
+    background-color: #09090d;
+    border-bottom: 1px solid #1f1f26;
+    padding: 40px 10%;
+}
+
+.archive-header-box {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.archive-subtitle {
+    color: #888888;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+select {
+    color: #ffffff !important;
+    background-color: #1f1f1f !important;
+}
+
+select option {
+    color: #ffffff !important;
+    background-color: #151515 !important;
+    padding: 10px;
+}
+
+.archive-controls {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.control-group label {
+    font-size: 11px;
+    color: #e10600;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.control-group select {
+    background-color: #15151a;
+    color: #ffffff;
+    border: 1px solid #38384f;
+    padding: 12px 18px;
+    border-radius: 4px;
+    font-family: 'Formula1', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 240px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.control-group select:focus,
+.control-group select:hover {
+    border-color: #e10600;
+}
+
+.control-group select:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   HLAVNÍ OBSAH & DATA BOXES
+   ========================================================================== */
+.archive-main-container {
+    flex: 1;
+    width: 92%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.data-box {
+    background-color: #0d0d12;
+    border-radius: 8px;
+    padding: 25px;
+    border: 1px solid #1f1f26;
+    margin-bottom: 25px;
+}
+
+.box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1f1f26;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.round-badge {
+    color: #e10600;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.race-date {
+    color: #888888;
+    font-size: 13px;
+}
+
+.race-title-text {
+    font-size: 22px;
+    color: #ffffff;
+    margin-top: 5px;
+}
+
+/* ==========================================================================
+   TABULKA VÝSLEDKŮ (SE STEJNÝMI STYLY JAKO RECENT-RESULTS)
+   ========================================================================== */
+.recent-results-box {
+    width: 100%;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: #0d0d12;
+    border-radius: 8px;
+    border: 1px solid #1f1f26;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    text-align: left;
+    padding: 10px;
+    color: #888;
+    font-size: 12px;
+    border-bottom: 1px solid #1f1f26;
+}
+
+.data-table td {
+    padding: 12px 10px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #15151c;
+}
+
+.driver-name {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.driver-nat {
+    display: block;
+    font-size: 11px;
+    color: #666666;
+    font-weight: normal;
+}
+
+.pos-col {
+    font-weight: bold;
+}
+
+.pos-p1 { color: #ffd700; }
+.pos-p2 { color: #c0c0c0; }
+.pos-p3 { color: #cd7f32; }
+
+.points {
+    text-align: right !important;
+    font-weight: bold;
+    color: #e10600;
+}
+
+/* ==========================================================================
+   FOOTER & LOADER
+   ========================================================================== */
+.main-footer {
+    background-color: #09090d;
+    text-align: center;
+    padding: 20px;
+    color: #666666;
+    font-size: 13px;
+    margin-top: 40px;
+    border-top: 1px solid #1f1f26;
+}
+
+.loader-box {
+    text-align: center;
+    padding: 60px 0;
+    color: #888888;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.spinner {
+    width: 35px;
+    height: 35px;
+    border: 3px solid #1f1f26;
+    border-top: 3px solid #e10600;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 900px) {
+    .main-header { flex-direction: column; gap: 15px; }
+    .archive-hero { padding: 30px 5%; }
+}

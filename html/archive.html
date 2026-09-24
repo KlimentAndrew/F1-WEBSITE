@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Archive & Historical Results</title>
+    <link rel="stylesheet" href="../styles/archive.css">
+</head>
+<body>
+
+    <!-- NAVIGACE (PODLE TVÉHO HLAVNÍHO WEBU) -->
+    <header class="main-header">
+        <a href="index.html" class="logo">
+            <img src="../images/f1-logo.png" alt="F1 Logo" onerror="this.style.display='none'">
+            <span>F1 - HOME OF MOTORSPORT</span>
+        </a>
+        <nav class="navbar">
+            <a href="index.html">HOME</a>
+            <a href="results.html">RESULTS</a>
+            <a href="standings.html">STANDINGS</a>
+            <a href="drivers.html">DRIVERS</a>
+            <a href="teams.html">TEAMS</a>
+            <a href="calendar.html">CALENDAR</a>
+            <a href="techzone.html">TECH ZONE</a>
+            <a href="archive.html" class="active">ARCHIVE</a>
+        </nav>
+    </header>
+
+    <!-- ARCHIV OBLAST S FILTRY -->
+    <section class="archive-hero">
+        <div class="archive-header-box">
+            <h1 class="section-title">HISTORICAL RACE ARCHIVE</h1>
+            <p class="archive-subtitle">Explore complete Grand Prix results from 1950 to present.</p>
+            
+            <div class="archive-controls">
+                <div class="control-group">
+                    <label for="season-select">SELECT SEASON:</label>
+                    <select id="season-select">
+                        <!-- JS naplní roky 2026 až 1950 -->
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="race-select">SELECT GRAND PRIX:</label>
+                    <select id="race-select" disabled>
+                        <option value="">-- Choose Season First --</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN OBSAH -->
+    <main class="archive-main-container">
+        <!-- LOADER -->
+        <div id="archive-loader" class="loader-box hidden">
+            <div class="spinner"></div>
+            <p>LOADING HISTORICAL DATA...</p>
+        </div>
+
+        <!-- META DATA ZÁVODU -->
+        <div id="race-details-card" class="data-box race-details-box hidden">
+            <div class="box-header">
+                <span id="meta-round" class="round-badge">ROUND 1</span>
+                <span id="meta-info" class="race-date">Circuit Name • Date</span>
+            </div>
+            <h2 id="meta-title" class="race-title-text">GRAND PRIX TITLE</h2>
+        </div>
+
+        <!-- TABULKA VÝSLEDKŮ -->
+        <div id="results-table-box" class="recent-results-box hidden">
+            <table class="data-table archive-table">
+                <thead>
+                    <tr>
+                        <th>POS</th>
+                        <th>NO</th>
+                        <th>DRIVER</th>
+                        <th>CONSTRUCTOR</th>
+                        <th>LAPS</th>
+                        <th>TIME / STATUS</th>
+                        <th>GRID</th>
+                        <th class="points">PTS</th>
+                    </tr>
+                </thead>
+                <tbody id="archive-tbody">
+                    <!-- JS dynamicky vloží výsledky -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; Formula 1 Fan Hub. Historical data provided by Jolpica/Ergast F1 API.</p>
+    </footer>
+
+    <script src="../js/archive.js"></script>
+</body>
+</html>
